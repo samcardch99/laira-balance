@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import AboutImage from "../assets/about/about.jpg";
 import About_sm_Image from "../assets/about/about_sm.jpg";
+import Down_Arrow from "../assets/icons/down_arrow.svg";
 ---
 
 <section
@@ -15,7 +16,7 @@ import About_sm_Image from "../assets/about/about_sm.jpg";
     class="object-contain lg:h-[80vh] lg:w-auto md:w-1/2 md:aspect-square w-fit hidden md:block"
   />
   <Image
-    src={About_sm_Image}
+    src={AboutImage}
     alt="About Us mobile"
     quality={70}
     class="object-cover w-full md:hidden"
@@ -35,13 +36,33 @@ import About_sm_Image from "../assets/about/about_sm.jpg";
       exclusiva de ropa deportiva y accesorios que complementan tu práctica con
       estilo y comodidad.
     </p>
-    <a href="/about" class="no-underline">Yoga</a>
+    <a href="#Yoga" class="flex group justify-between no-underline">
+      <span>Yoga</span>
+      <Down_Arrow
+        class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
+      />
+    </a>
     <div class="w-full h-px bg-gray-700"></div>
-    <a href="/about" class="no-underline">Barre</a>
+    <a href="#Barre" class="flex group justify-between no-underline">
+      <span>Barre</span>
+      <Down_Arrow
+        class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
+      />
+    </a>
     <div class="w-full h-px bg-gray-700"></div>
-    <a href="/about" class="no-underline">Pilates</a>
+    <a href="#Ballet" class="flex group justify-between no-underline">
+      <span>Ballet</span>
+      <Down_Arrow
+        class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
+      />
+    </a>
     <div class="w-full h-px bg-gray-700"></div>
-    <a href="/about" class="no-underline">Boutique Laira Brand</a>
+    <a href="/about" class="flex group justify-between no-underline">
+      <span>Boutique Laira Brand</span>
+      <Down_Arrow
+        class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
+      />
+    </a>
     <div class="w-full h-px bg-gray-700"></div>
   </div>
 </section>

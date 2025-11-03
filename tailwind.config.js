@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: '#000',
         secondary: '#efeceb',
+        pinkCustom: '#c4ab9e',
       },
     },
   },

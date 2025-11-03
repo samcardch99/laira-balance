@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+const {
+  imageSrc,
+  imageAlt,
+  className,
+  classText,
+  classHref = "/",
+  align = "left",
+  id = "",
+} = Astro.props;
+---
+
+<div
+  id={id}
+  class=`min-h-screen w-full flex md:flex-row flex-col items-end justify-end mt-10 lg:mt-0 ${align === "left" ? "lg:text-end" : "text-start"}`
+>
+  <div
+    class=`flex flex-col px-8 gap-6 w-full lg:w-1/2 pb-8  ${align === "left" ? "order-1" : "lg:order-2"}`
+  >
+    <div class="flex flex-col gap-2">
+      <h2 class="text-6xl text-black font-bold italic w-full">
+        {className}
+      </h2>
+      <div
+        class=`h-[2px] bg-black w-[90%] ${align === "left" ? "lg:ml-[10%]" : "mr-[10%] "}`
+      >
+      </div>
+    </div>
+
+    <p
+      class=`text-sm lg:text-base w-[95%]${align === "left" ? "mr-[5%]" : "lg:ml-[5%]"}`
+    >
+      {classText}
+    </p>
+    <a
+      href={classHref}
+      class=`bg-black text-secondary py-2 px-4 w-fit no-underline ${align === "left" ? "lg:self-end" : "self-start"} rounded-full  `
+      >Ver Más</a
+    >
+  </div>
+  <Image
+    src={imageSrc}
+    alt={imageAlt}
+    class=`object-cover h-auto lg:h-[100dvh] w-full lg:w-1/2 ${align === "left" ? "order-2" : "lg:order-1"}`
+  />
+</div>

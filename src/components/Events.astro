@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import EventImage_sm from "../assets/events-section/events_sm.jpg";
+import EventImage from "../assets/events-section/events.jpg";
+import testimonials from "../data/events-data/testimonials.json";
+import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
+---
+
+<section id="events" class="relative w-full h-[100dvh] flex flex-col">
+  <!-- Línea superior -->
+  <div class="w-full h-[3px] bg-primary"></div>
+
+  <!-- Fondo -->
+  <Image
+    height={1920}
+    width={1080}
+    quality={90}
+    src={EventImage_sm}
+    alt="Event image mobile"
+    class="z-0 h-full w-full object-cover brightness-75 md:hidden"
+  />
+  <Image
+    width={1920}
+    height={1080}
+    quality={90}
+    src={EventImage}
+    alt="Event image desktop"
+    class="z-0 h-full w-full object-cover brightness-75 hidden md:block"
+  />
+
+  <!-- CONTENIDO SUPERIOR (Título y botón) -->
+  <div class="absolute bottom-16 right-10 flex flex-col gap-2 items-end z-30">
+    <h2 class="text-5xl md:text-6xl text-secondary font-bold">Eventos</h2>
+    <a
+      href="/classes"
+      class="rounded-full bg-secondary text-black text-sm px-3 py-1 w-fit"
+      >Hazte Miembro!</a
+    >
+  </div>
+
+  <!-- SWIPER CENTRADO -->
+  <Swiper
+    class="!absolute top-[20%] lg:top-1/2 lg:-translate-y-1/2 left-1/2 lg:left-10 lg:translate-x-0 -translate-x-1/2 w-[80%] md:w-[40%] h-[20%] z-20"
+    options={{
+      slidesPerView: 1,
+      loop: true,
+      direction: "vertical",
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    }}
+  >
+    <SwiperWrapper>
+      {
+        testimonials.map((testimonial) => (
+          <SwiperSlide class="flex flex-col justify-center items-start gap-2 text-secondary">
+            <h3 class="text-2xl  font-bold">{testimonial.name}</h3>
+            <p class="text-sm md:text-base italic leading-snug">
+              {testimonial.opinion}
+            </p>
+          </SwiperSlide>
+        ))
+      }
+    </SwiperWrapper>
+  </Swiper>
+</section>
