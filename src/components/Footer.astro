@@ -1,8 +1,32 @@
 ---
 import Logo from "../assets/footer/logo.svg";
 import Logo_sm from "../assets/footer/logo_sm.svg";
+import Phone from "../assets/icons/phone.svg";
+import Mail from "../assets/icons/mail.svg";
+import Location from "../assets/icons/location.svg";
+import Instagram from "../assets/icons/instagram.svg";
+import Clock from "../assets/icons/clock.svg";
 ---
 
-<section id="footer" class="h-[100dvh] bg-pinkCustom w-full relative">
-  <Logo class="absolute bottom-10 px-10 w-full left-1/2 -translate-x-1/2" />
+<section id="footer" class="h-[100dvh] bg-pinkCustom w-full px-10 relative">
+  <div class="flex flex-col w-full justify-between pt-20">
+    <div class="flex w-1/2 justify-between">
+      <div class="flex flex-col gap-2 text-secondary">
+        <a href="/">Home</a>
+        <a href="/">Sobre Nosotros</a>
+        <a href="/">Reservas</a>
+        <a href="/">Membresias</a>
+        <a href="/">Boutique</a>
+      </div>
+      <div class="flex flex-col">
+        <div class="flex gap-2"></div>
+      </div>
+    </div>
+  </div>
+  <Logo
+    class="md:block hidden absolute bottom-10 px-10 w-full left-1/2 -translate-x-1/2"
+  />
+  <Logo_sm
+    class="md:hidden block absolute bottom-10 px-10 w-full left-1/2 -translate-x-1/2"
+  />
 </section>

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main # The branch name your are commit the new changes
-  workflow_dispatch:
 
 jobs:
   build:
