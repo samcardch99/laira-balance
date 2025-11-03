@@ -5,16 +5,8 @@ import image_2 from "../assets/membership-section/2.jpg";
 const { title, subtitle, button, footer, image } = Astro.props;
 ---
 
-<section class="h-screen w-full relative">
+<section class="min-h-screen w-full relative">
   <div class="w-full h-[2px] bg-black z-50"></div>
-  <Image
-    src={image === "1" ? image_1 : image_2}
-    alt="Membership Image 1"
-    height={1920}
-    width={1080}
-    quality={90}
-    class="lg:h-full object-cover h-2/3 w-full lg:w-1/3 absolute left-0 bottom-0 lg:top-0 lg:bottom-auto border-t-2 overflow-hidden lg:border-r-2 border-black"
-  />
 
   <div
     class="absolute top-0 py-10 lg:py-0 bottom-auto lg:bottom-10 lg:top-auto w-full lg:w-2/3 right-0 flex flex-col justify-between h-1/3 lg:h-[40%] items-center"
@@ -37,6 +29,15 @@ const { title, subtitle, button, footer, image } = Astro.props;
       {footer}
     </h3>
   </div>
+
+  <Image
+    src={image === "1" ? image_1 : image_2}
+    alt="Membership Image 1"
+    height={1920}
+    width={1080}
+    quality={80}
+    class="lg:h-full object-cover h-2/3 w-full lg:w-1/3 absolute left-0 bottom-0 lg:top-0 lg:bottom-auto border-t-2 overflow-hidden lg:border-r-2 border-black"
+  />
 </section>
 <style>
   .white-space-pre-line {

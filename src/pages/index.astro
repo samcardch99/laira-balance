@@ -12,6 +12,8 @@ import ReserveButton from "../components/helpers/ReserveButton.astro";
 import Events from "../components/Events.astro";
 import Memberships from "../components/Memberships.astro";
 import MembershipsData from "../data/memberships-data/memberships.json";
+import Footer from "../components/Footer.astro";
+
 const images = [yoga, barre, ballet];
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -50,5 +52,6 @@ const images = [yoga, barre, ballet];
         />
       ))
     }
+    <Footer />
   </main>
 </Layout>
