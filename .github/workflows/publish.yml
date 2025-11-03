@@ -2,7 +2,8 @@ name: Deploy
 
 on:
   push:
-    branches: ["main"] # The branch name your are commit the new changes
+    branches:
+      - main # The branch name your are commit the new changes
 
 jobs:
   build:
