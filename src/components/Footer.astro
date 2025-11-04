@@ -6,11 +6,17 @@ import Mail from "../assets/icons/mail.svg";
 import Location from "../assets/icons/location.svg";
 import Instagram from "../assets/icons/instagram.svg";
 import Clock from "../assets/icons/clock.svg";
+import Form from "./helpers/Form.jsx";
 ---
 
-<section id="footer" class="h-[100dvh] bg-pinkCustom w-full px-10 relative">
-  <div class="flex flex-col w-full justify-between pt-20">
-    <div class="flex w-1/2 justify-between">
+<section
+  id="footer"
+  class="min-h-[100dvh] border-t-2 border-primary text-secondary bg-pinkCustom w-full px-8 lg:px-10 pt-20 relative"
+>
+  <div class="flex flex-col gap-4">
+    <div
+      class="flex flex-col lg:flex-row justify-normal gap-7 lg:justify-between text-base"
+    >
       <div class="flex flex-col gap-2 text-secondary">
         <a href="/">Home</a>
         <a href="/">Sobre Nosotros</a>
@@ -18,17 +24,46 @@ import Clock from "../assets/icons/clock.svg";
         <a href="/">Membresias</a>
         <a href="/">Boutique</a>
       </div>
-      <div class="flex flex-col">
-        <div class="flex gap-2">
-          <a href="">305-429-3283</a>
+      <div class="flex flex-col gap-3">
+        <div class="flex gap-2 items-center">
+          <Phone class="h-4" />
+          <a href="tel:3054293283" target="_blank" rel="noopener noreferrer"
+            >305-429-3283</a
+          >
+        </div>
+        <div class="flex gap-2 items-center">
+          <Mail class="h-4" />
+          <a
+            href="mailto:info@lairabalance.com"
+            target="_blank"
+            rel="noopener noreferrer">info@lairabalance.com</a
+          >
+        </div>
+        <div class="flex gap-2 items-center">
+          <Location class="h-4" />
+          <a
+            href="https://maps.app.goo.gl/GboFq2hPMknt7N5G8"
+            target="_blank"
+            rel="noopener noreferrer">4314 NW 2nd Ave, Miami, FL33127</a
+          >
+        </div>
+        <div class="flex gap-2 items-center">
+          <Instagram class="h-4" />
+          <a
+            href="https://www.instagram.com/lairabalance/"
+            target="_blank"
+            rel="noopener noreferrer">@lairabalance</a
+          >
+        </div>
+        <div class="flex gap-2 items-center">
+          <Clock class="h-4" />
+          <span>7:00 AM - 7:30 PM</span>
         </div>
       </div>
+      <Form client:visible />
     </div>
+
+    <Logo class="md:block hidden px-8 pb-10 w-full" />
+    <Logo_sm class="md:hidden block pb-10 px-4 w-full" />
   </div>
-  <Logo
-    class="md:block hidden absolute bottom-10 px-10 w-full left-1/2 -translate-x-1/2"
-  />
-  <Logo_sm
-    class="md:hidden block absolute bottom-10 px-10 w-full left-1/2 -translate-x-1/2"
-  />
 </section>

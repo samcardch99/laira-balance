@@ -89,3 +89,39 @@ html {
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
 }
+
+img {
+  @apply border-[1px] border-primary;
+}
+
+.darkPink {
+  @apply bg-primary text-secondary transition-colors;
+}
+
+.dark {
+  @apply bg-primary text-secondary transition-colors;
+}
+
+.light {
+  @apply bg-secondary text-primary transition-colors;
+}
+
+.lightPink {
+  @apply bg-secondary text-pinkCustom transition-colors;
+}
+
+.light:hover {
+  @apply bg-primary text-secondary;
+}
+
+.lightPink:hover {
+  @apply bg-primary text-secondary;
+}
+
+.darkPink:hover {
+  @apply bg-pinkCustom text-primary;
+}
+
+.dark:hover {
+  @apply bg-secondary text-primary;
+}

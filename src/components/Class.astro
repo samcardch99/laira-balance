@@ -11,7 +11,7 @@ const {
 } = Astro.props;
 ---
 
-<div
+<section
   id={id}
   class=`min-h-screen w-full flex md:flex-row flex-col items-end justify-end mt-10 lg:mt-0 ${align === "left" ? "lg:text-end" : "text-start"}`
 >
@@ -35,7 +35,7 @@ const {
     </p>
     <a
       href={classHref}
-      class=`bg-black text-secondary py-2 px-4 w-fit no-underline ${align === "left" ? "lg:self-end" : "self-start"} rounded-full  `
+      class=`darkPink py-2 px-4 w-fit no-underline ${align === "left" ? "lg:self-end" : "self-start"} rounded-full  `
       >Ver Más</a
     >
   </div>
@@ -44,7 +44,7 @@ const {
     alt={imageAlt}
     height={1920}
     width={1080}
-    quality={60}
+    quality={80}
     class=`object-cover h-auto lg:h-[100dvh] w-full lg:w-1/2 ${align === "left" ? "order-2" : "lg:order-1"}`
   />
-</div>
+</section>

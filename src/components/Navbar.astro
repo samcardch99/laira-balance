@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets";
+
 ---
 
 <header
   id="navbar"
-  class="w-full h-20 px-10 py-6 md:py-4 grid grid-cols-3 fixed z-30 top-0 left-0 text-black text-lg backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_90%,transparent_100%)]"
+  class="secondary transition-all w-full h-20 px-10 py-6 md:py-4 grid grid-cols-3 fixed z-30 top-0 left-0 text-lg backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_90%,transparent_100%)]"
 >
   <div class="flex items-center gap-8 font-bold">
     <a href="/" class="md:block hidden"> Boutique </a>
@@ -38,3 +38,66 @@ import { Image } from "astro:assets";
     <a href="/"> Menú </a>
   </div>
 </header>
+
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector("header");
+    const sections = document.querySelectorAll("section");
+    const reserveButton = document.getElementById("reserve-button");
+
+    const colors_reserveButton = {
+      hero: "light",
+      about: "darkPink",
+      Yoga: "darkPink",
+      Barre: "darkPink",
+      Ballet: "darkPink",
+      memberships_1: "darkPink",
+      memberships_2: "darkPink",
+      classes: "light",
+      footer: "light",
+      events: "light",
+    };
+
+    const colors_navbar = {
+      hero: "secondary",
+      about: "primary",
+      classes: "secondary",
+      Yoga: "primary",
+      Barre: "primary",
+      Ballet: "primary",
+      events: "secondary",
+      memberships_1: "primary",
+      memberships_2: "primary",
+      footer: "secondary",
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            header.classList.add(colors_navbar[id]);
+            header.classList.remove(
+              colors_navbar[id] === "primary" ? "secondary" : "primary"
+            );
+            reserveButton.classList.add(colors_reserveButton[id]);
+            reserveButton.classList.remove(
+              colors_reserveButton[id] === "darkPink" ? "light" : "darkPink"
+            );
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>
+<style>
+  header.primary {
+    @apply text-primary;
+  }
+  header.secondary {
+    @apply text-secondary;
+  }
+</style>

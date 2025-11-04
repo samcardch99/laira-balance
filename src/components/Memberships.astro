@@ -2,10 +2,10 @@
 import { Image } from "astro:assets";
 import image_1 from "../assets/membership-section/1.jpg";
 import image_2 from "../assets/membership-section/2.jpg";
-const { title, subtitle, button, footer, image } = Astro.props;
+const { title, subtitle, button, footer, image, id } = Astro.props;
 ---
 
-<section class="min-h-screen w-full relative">
+<section id={id} class="min-h-screen w-full relative">
   <div class="w-full h-[2px] bg-black z-50"></div>
 
   <div
@@ -20,9 +20,8 @@ const { title, subtitle, button, footer, image } = Astro.props;
       <h3 class="text-sm lg:text-xl font-bold">
         {subtitle}
       </h3>
-      <a
-        href="/memberships"
-        class="bg-black px-6 py-2 text-secondary rounded-full w-fit">{button}</a
+      <a href="/memberships" class="darkPink px-6 py-2 rounded-full w-fit"
+        >{button}</a
       >
     </div>
     <h3 class="italic text-sm lg:text-xl mt-4 text-center">
@@ -36,7 +35,7 @@ const { title, subtitle, button, footer, image } = Astro.props;
     height={1920}
     width={1080}
     quality={80}
-    class="lg:h-full object-cover h-2/3 w-full lg:w-1/3 absolute left-0 bottom-0 lg:top-0 lg:bottom-auto border-t-2 overflow-hidden lg:border-r-2 border-black"
+    class="lg:h-full object-cover h-2/3 w-full lg:w-1/3 absolute left-0 bottom-0 lg:top-0 lg:bottom-auto overflow-hidden lg:border-r-2 border-black"
   />
 </section>
 <style>
