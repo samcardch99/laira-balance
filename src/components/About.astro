@@ -7,7 +7,7 @@ import Down_Arrow from "../assets/icons/down_arrow.svg";
 
 <section
   id="about"
-  class="min-h-screen w-full max-w-screen flex flex-col md:flex-row justify-center md:justify-normal md:items-end pb-10 md:pr-20 relative gap-10 pt-20 px-8 md:px-0"
+  class="min-h-screen md-vertical:min-h-0 md-vertical:py-20 w-full max-w-screen flex flex-col md:flex-row justify-center md:justify-normal md:items-end pb-10 md:pr-20 relative gap-10 pt-20 px-8 md:px-0"
 >
   <Image
     src={AboutImage}
@@ -16,7 +16,7 @@ import Down_Arrow from "../assets/icons/down_arrow.svg";
     height={1920}
     width={1080}
     quality={80}
-    class="object-contain lg:h-[80vh] lg:w-auto md:w-1/2 md:aspect-square w-fit hidden md:block"
+    class="object-contain self-center lg:self-auto lg:max-h-[80vh] max-w-fit lg:min-w-1/2 md:w-1/2 md:aspect-square w-fit hidden md:block"
   />
   <Image
     src={AboutImage}
@@ -25,7 +25,7 @@ import Down_Arrow from "../assets/icons/down_arrow.svg";
     height={1920}
     width={1080}
     quality={80}
-    class="object-cover w-full md:hidden"
+    class="object-cover w-full max-w-96 md:hidden"
   />
   <div class="prose lg:prose-xl prose-neutral">
     <h2>Sobre Nosotros</h2>
@@ -42,28 +42,37 @@ import Down_Arrow from "../assets/icons/down_arrow.svg";
       exclusiva de ropa deportiva y accesorios que complementan tu práctica con
       estilo y comodidad.
     </p>
-    <a href="#Yoga" class="flex group justify-between no-underline">
+    <a href="#Yoga" class="flex group justify-between no-underline about-links">
       <span>Yoga</span>
       <Down_Arrow
         class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
       />
     </a>
     <div class="w-full h-px bg-gray-700"></div>
-    <a href="#Barre" class="flex group justify-between no-underline">
+    <a
+      href="#Barre"
+      class="flex group justify-between no-underline about-links"
+    >
       <span>Barre</span>
       <Down_Arrow
         class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
       />
     </a>
     <div class="w-full h-px bg-gray-700"></div>
-    <a href="#Ballet" class="flex group justify-between no-underline">
+    <a
+      href="#Ballet"
+      class="flex group justify-between no-underline about-links"
+    >
       <span>Ballet</span>
       <Down_Arrow
         class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
       />
     </a>
     <div class="w-full h-px bg-gray-700"></div>
-    <a href="/about" class="flex group justify-between no-underline">
+    <a
+      href="/about"
+      class="flex group justify-between no-underline about-links"
+    >
       <span>Boutique Laira Brand</span>
       <Down_Arrow
         class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"

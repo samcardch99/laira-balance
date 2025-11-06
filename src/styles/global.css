@@ -90,9 +90,9 @@ html {
   scroll-behavior: smooth;
 }
 
-img {
+/* img {
   @apply border-[1px] border-primary;
-}
+} */
 
 .darkPink {
   @apply bg-primary text-secondary transition-colors;
@@ -124,4 +124,33 @@ img {
 
 .dark:hover {
   @apply bg-secondary text-primary;
+}
+
+.link-underline {
+  @apply relative inline-block w-fit;
+}
+
+.link-underline::after {
+  content: "";
+  @apply absolute left-0 bottom-0 w-0 h-[2px] bg-current transition-all duration-300;
+}
+
+.link-underline:hover::after {
+  @apply w-full;
+}
+
+.about-links {
+  @apply hover:bg-pinkCustom/10 transition-colors duration-200 px-1;
+}
+
+a:hover {
+  @apply text-darkPink;
+}
+
+header.primary a:hover {
+  @apply text-darkPink;
+}
+
+header.secondary a:hover {
+  @apply text-pinkCustom;
 }

@@ -11,29 +11,79 @@ import Form from "./helpers/Form.jsx";
 
 <section
   id="footer"
-  class="min-h-[100dvh] border-t-2 border-primary text-secondary bg-pinkCustom w-full px-8 lg:px-10 pt-20 relative"
+  class="min-h-[100dvh] border-t-2 border-primary text-secondary bg-pinkCustom w-full px-8 lg:px-10 relative"
 >
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col min-h-screen justify-between pt-20">
     <div
-      class="flex flex-col lg:flex-row justify-normal gap-7 lg:justify-between text-base"
+      class="flex flex-col md-vertical:flex-col lg:flex-row justify-normal gap-7 lg:justify-between text-base"
     >
-      <div class="flex flex-col gap-2 text-secondary">
-        <a href="/">Home</a>
-        <a href="/">Sobre Nosotros</a>
-        <a href="/">Reservas</a>
-        <a href="/">Membresias</a>
-        <a href="/">Boutique</a>
+      <div
+        class="flex flex-col md:flex-row w-full lg:w-fit gap-7 md:justify-between"
+      >
+        <div class="flex flex-col gap-2 text-secondary">
+          <a class="link-underline" href="/">Home</a>
+          <a class="link-underline" href="/">Sobre Nosotros</a>
+          <a class="link-underline" href="/">Reservas</a>
+          <a class="link-underline" href="/">Membresias</a>
+          <a class="link-underline" href="/">Boutique</a>
+        </div>
+        <div class="flex flex-col gap-3 lg:hidden">
+          <div class="flex gap-2 items-center">
+            <Phone class="h-4" />
+            <a
+              class="link-underline"
+              href="tel:3054293283"
+              target="_blank"
+              rel="noopener noreferrer">305-429-3283</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Mail class="h-4" />
+            <a
+              class="link-underline"
+              href="mailto:info@lairabalance.com"
+              target="_blank"
+              rel="noopener noreferrer">info@lairabalance.com</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Location class="h-4" />
+            <a
+              class="link-underline"
+              href="https://maps.app.goo.gl/GboFq2hPMknt7N5G8"
+              target="_blank"
+              rel="noopener noreferrer">4314 NW 2nd Ave, Miami, FL33127</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Instagram class="h-4" />
+            <a
+              class="link-underline"
+              href="https://www.instagram.com/lairabalance/"
+              target="_blank"
+              rel="noopener noreferrer">@lairabalance</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Clock class="h-4" />
+            <span>7:00 AM - 7:30 PM</span>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col gap-3">
+      <div class="flex-col gap-3 hidden lg:flex">
         <div class="flex gap-2 items-center">
           <Phone class="h-4" />
-          <a href="tel:3054293283" target="_blank" rel="noopener noreferrer"
-            >305-429-3283</a
+          <a
+            class="link-underline"
+            href="tel:3054293283"
+            target="_blank"
+            rel="noopener noreferrer">305-429-3283</a
           >
         </div>
         <div class="flex gap-2 items-center">
           <Mail class="h-4" />
           <a
+            class="link-underline"
             href="mailto:info@lairabalance.com"
             target="_blank"
             rel="noopener noreferrer">info@lairabalance.com</a
@@ -42,6 +92,7 @@ import Form from "./helpers/Form.jsx";
         <div class="flex gap-2 items-center">
           <Location class="h-4" />
           <a
+            class="link-underline"
             href="https://maps.app.goo.gl/GboFq2hPMknt7N5G8"
             target="_blank"
             rel="noopener noreferrer">4314 NW 2nd Ave, Miami, FL33127</a
@@ -50,6 +101,7 @@ import Form from "./helpers/Form.jsx";
         <div class="flex gap-2 items-center">
           <Instagram class="h-4" />
           <a
+            class="link-underline"
             href="https://www.instagram.com/lairabalance/"
             target="_blank"
             rel="noopener noreferrer">@lairabalance</a

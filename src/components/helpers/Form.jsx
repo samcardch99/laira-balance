@@ -78,7 +78,7 @@ export default function HomeFooter() {
     return translations[key] || key;
   };
   return (
-    <div className="w-full mt-7 mb-7 lg:mt-0 lg:mb-0 lg:w-1/3 z-50">
+    <div className="w-full mt-7 mb-7 lg:mt-0 lg:mb-0 lg:w-1/3 z-50 max-w-[30rem]">
       <h2 className="italic text-2xl font-bold text-secondary mb-4">
         Envíanos tus preguntas <br /> y comentarios.
       </h2>

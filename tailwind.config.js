@@ -7,12 +7,20 @@ export default {
         primary: '#000',
         secondary: '#efeceb',
         pinkCustom: '#c4ab9e',
+        darkPink: '#a78270',
       },
+      screens: {
+        'md-vertical': { raw: '(min-width: 768px) and (max-aspect-ratio: 1/1)' },
+        'md-custom': '637px',
+        'md-custom-lg': { raw: '(min-width: 768px) and (max-width: 1023px)' },
+      }
     },
+
   },
   plugins: [
     require('@tailwindcss/typography'),
 
   ],
+
 }
 
