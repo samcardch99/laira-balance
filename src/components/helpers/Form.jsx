@@ -25,7 +25,10 @@ function useFormSchema() {
   );
 }
 
-export default function HomeFooter() {
+export default function HomeFooter({
+  className = "text-secondary",
+  buttonClass = "lightPink",
+}) {
   const formSchema = useFormSchema();
   const formRef = useRef(null);
 
@@ -79,15 +82,15 @@ export default function HomeFooter() {
   };
   return (
     <div className="w-full mt-7 mb-7 lg:mt-0 lg:mb-0 lg:w-1/3 z-50 max-w-[30rem]">
-      <h2 className="italic text-2xl font-bold text-secondary mb-4">
+      <h2 className={`italic text-2xl font-bold ${className}  mb-4`}>
         Envíanos tus preguntas <br /> y comentarios.
       </h2>
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-2 flex flex-col items-start w-full text-primary"
+        className={`space-y-2 flex flex-col items-start w-full  ${className}`}
       >
-        <label className="text-sm text-secondary">Nombre</label>
+        <label className="text-sm ">Nombre</label>
         <input
           {...register("username")}
           placeholder={t("form.username")}
@@ -96,7 +99,7 @@ export default function HomeFooter() {
         {errors.username && (
           <p className="text-sm text-red-900">{errors.username.message}</p>
         )}
-        <label className="text-sm text-secondary">Email</label>
+        <label className="text-sm ">Email</label>
 
         <input
           {...register("email")}
@@ -109,7 +112,7 @@ export default function HomeFooter() {
 
         {/* <input {...register("phone")} placeholder={t("form.phone")} />
       {errors.phone && <p>{errors.phone.message}</p>} */}
-        <label className="text-sm text-secondary">Mensaje</label>
+        <label className="text-sm ">Mensaje</label>
 
         <textarea
           {...register("message")}
@@ -120,7 +123,7 @@ export default function HomeFooter() {
           <p className="text-sm text-red-900">{errors.message.message}</p>
         )}
 
-        <label className="flex gap-2 text-secondary">
+        <label className="flex gap-2">
           <input
             type="checkbox"
             {...register("terms")}
@@ -137,7 +140,7 @@ export default function HomeFooter() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="rounded-xl lightPink px-3 py-2"
+          className={`rounded-xl ${buttonClass} px-3 py-2`}
         >
           {isSubmitting ? t("form.sending") : t("form.send")}
         </button>

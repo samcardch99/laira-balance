@@ -1,5 +1,10 @@
 ---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ReserveButton from "../components/helpers/ReserveButton.astro";
+
 import "../styles/global.css";
+import { Toaster } from "sonner";
 ---
 
 <!doctype html>
@@ -12,7 +17,12 @@ import "../styles/global.css";
     <title>Laira Balance</title>
   </head>
   <body>
+    <Toaster client:idle />
+
+    <ReserveButton />
+    <Navbar />
     <slot />
+    <Footer />
   </body>
 </html>
 

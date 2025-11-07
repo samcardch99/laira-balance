@@ -90,6 +90,25 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  background-color: #efeceb;
+  margin: 0;
+  max-width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100%;
+  font-family: "Warming", Inter, Roboto, "Helvetica Neue", "Arial Nova",
+    "Nimbus Sans", Arial, sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+  @apply tracking-wide;
+}
+
+.white-space-pre-line {
+  white-space: pre-line;
+}
+
 /* img {
   @apply border-[1px] border-primary;
 } */
@@ -153,4 +172,14 @@ header.primary a:hover {
 
 header.secondary a:hover {
   @apply text-pinkCustom;
+}
+
+.input-border input,
+.input-border textarea {
+  @apply border border-primary;
+}
+
+input,
+textarea {
+  @apply bg-secondary;
 }

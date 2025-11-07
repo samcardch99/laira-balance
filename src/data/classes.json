@@ -3,21 +3,21 @@
     {
         "className": "Yoga",
         "classText": "En Laira Balance, el yoga se vive como una experiencia de armonía y presencia. Cada clase combina movimiento fluido, respiración consciente y meditación guiada para reconectar cuerpo y mente. En un ambiente sereno y cuidadosamente diseñado, cultivamos equilibrio, flexibilidad y calma interior, promoviendo bienestar más allá del tapete.",
-        "classHref": "",
+        "classHref": "/pricing",
         "altImage" : "Imagen de una clase de Yoga en Laira Balance"
 
     },
     {
         "className": "Barre",
         "classText": "El Barre en Laira Balance fusiona la precisión del pilates, la elegancia de la danza y la fuerza del fitness consciente. A través de movimientos controlados y secuencias fluidas, se tonifican los músculos, se mejora la postura y se estimula la gracia natural del cuerpo. Una práctica desafiante pero equilibrada, diseñada para esculpir y fortalecer con estilo.",
-        "classHref": "",
+        "classHref": "/pricing",
         "altImage" : "Imagen de una clase de Barre en Laira Balance"
 
     },
     {
         "className": "Ballet",
         "classText": "En Laira Balance cultivamos el arte del Ballet desde una perspectiva consciente y elegante. Nuestras clases se enfocan en la técnica, la postura y la expresión corporal, fomentando gracia, fuerza y equilibrio. En un entorno sereno y minimalista, trabajamos desde los fundamentos barra, centro y estiramientos para desarrollar coordinación, disciplina y armonía entre cuerpo y mente. Cada movimiento busca conectar la belleza del gesto con el bienestar interior.",
-        "classHref": "",
+        "classHref": "/pricing",
         "altImage" : "Imagen de una clase de Ballet en Laira Balance"
 
     }

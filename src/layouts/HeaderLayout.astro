@@ -1,0 +1,23 @@
+---
+import Navbar from "../components/Navbar.astro";
+import ReserveButton from "../components/helpers/ReserveButton.astro";
+import "../styles/global.css";
+import { Toaster } from "sonner";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Laira Balance | Contact</title>
+  </head>
+  <body>
+    <Toaster client:idle />
+    <ReserveButton />
+    <Navbar />
+    <slot />
+  </body>
+</html>

@@ -8,7 +8,6 @@ import classes from "../data/classes.json";
 import yoga from "../assets/classes-section/yoga.jpg";
 import barre from "../assets/classes-section/barre.jpg";
 import ballet from "../assets/classes-section/ballet.jpg";
-import ReserveButton from "../components/helpers/ReserveButton.astro";
 import Events from "../components/Events.astro";
 import Memberships from "../components/Memberships.astro";
 import MembershipsData from "../data/memberships-data/memberships.json";
@@ -19,9 +18,7 @@ const images = [yoga, barre, ballet];
 ---
 
 <Layout>
-  <Toaster client:idle />
   <main>
-    <ReserveButton />
     <Cover />
     <About />
     <Classes />
@@ -53,6 +50,5 @@ const images = [yoga, barre, ballet];
         />
       ))
     }
-    <Footer />
   </main>
 </Layout>
