@@ -1,5 +1,6 @@
 ---
-
+import Menu from "./Menu.astro";
+let isOpen = false;
 ---
 
 <header
@@ -35,12 +36,20 @@
       <span class="font-thin">|</span>
       <a href="/es"> ES </a>
     </div>
-    <a href="/"> Menú </a>
+    <button class="open-menu-button"> Menú </button>
   </div>
+  <Menu isOpen={isOpen} />
 </header>
 
 <script is:inline>
   console.log("Navbar script loaded");
+  let isOpen = false;
+  const menu_button = document.querySelector(".open-menu-button");
+  menu_button.addEventListener("click", () => {
+    isOpen = !isOpen;
+
+    console.log("Menu button clicked");
+  });
   window.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("header");
     const sections = document.querySelectorAll("section");
@@ -62,6 +71,8 @@
       about_class_pack: "darkPink",
       contact: "darkPink",
       contact_map: "darkPink",
+      schedule_section: "light",
+      schedule_widget: "darkPink",
     };
 
     const colors_navbar = {
@@ -79,6 +90,9 @@
       about_trial: "secondary",
       about_class_pack: "primary",
       contact: "primary",
+      about_interior: "primary",
+      schedule_section: "secondary",
+      schedule_widget: "primary",
     };
 
     const observer = new IntersectionObserver(

@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import collage from "../assets/about-interior/collage.jpg";
+import collage_sm from "../assets/about-interior/collage_sm.jpg";
+---
+
+<Layout>
+  <main>
+    <section
+      id="about_interior"
+      class="flex flex-col gap-12 w-full min-h-screen bg-pinkCustom"
+    >
+      <div class="prose prose-xl px-10 pt-32 text-secondary">
+        <h1
+          class="italic font-bold text-5xl thin-screen:text-3xl text-secondary"
+        >
+          Conoce más de Laira Balance
+        </h1>
+        <p>
+          Laira Balance nació de una pausa. De ese instante en el que el cuerpo
+          pide silencio y el alma susurra que hay que volver al centro. Su
+          fundadora, Laura García, descubrió en el movimiento una forma de sanar
+          no solo el cuerpo, sino también la mente. Después de años viviendo
+          donde el ruido era constante, comprendió que el verdadero lujo no está
+          en tener más, sino en sentir mejor.
+        </p>
+        <p>
+          Así nació Laira Balance: un espacio creado desde la calma, diseñado
+          para quienes buscan equilibrio sin renunciar a la belleza. Cada
+          textura, cada tono, cada detalle habla de una misma filosofía: el arte
+          de vivir en armonía. En Laira, el movimiento se convierte en ritual.
+          El diseño, en refugio. Y cada sesión, en una invitación a regresar a
+          uno mismo.
+        </p>
+        <p>
+          Más que un estudio, Laira Balance es una declaración de intención:
+          vivir con propósito, respirar con conciencia y encontrar elegancia en
+          la quietud.
+        </p>
+        <a href="/contact" class="lightPink rounded-full px-6 py-4 no-underline"
+          >Contáctanos</a
+        >
+      </div>
+
+      <Image
+        height={1920}
+        width={1080}
+        quality={80}
+        src={collage_sm}
+        alt="Collage describing the Laira Balance experience."
+        class="w-full object-cover md:hidden"
+      />
+      <Image
+        height={1920}
+        width={1080}
+        quality={80}
+        src={collage}
+        alt="Collage describing the Laira Balance experience."
+        class="w-full object-cover hidden md:block"
+      />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  p {
+    @apply text-base;
+  }
+</style>

@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import schedule from "../assets/schedule-section/schedule.jpg";
+import schedule_sm from "../assets/schedule-section/schedule_sm.jpg";
+import { Image } from "astro:assets";
+import Down_arrow_circle from "../assets/icons/down_arrow_circle.svg";
+---
+
+<Layout>
+  <main>
+    <section id="schedule_section" class="w-full min-h-screen relative">
+      <h1
+        class="z-10 absolute left-8 top-1/2 -translate-y-2/3 lg:-translate-y-1/2 text-secondary font-bold italic text-5xl md:text-7xl lg:text-9xl leading-[3.5rem]"
+      >
+        Center<br />Breathe<br />Glow
+      </h1>
+      <div
+        class="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-4 z-10 justify-center items-center"
+      >
+        <h2
+          class="italic text-base md:text-xl lg:text-2xl text-secondary w-full"
+        >
+          book your class
+        </h2>
+        <a
+          href="#schedule_widget"
+          class="hover:bg-secondary/10 rounded-full transition-all duration-200 cursor-pointer group"
+        >
+          <Down_arrow_circle
+            class="w-8 md:w-10 lg:w-10 group-hover:scale-105 transition-transform duration-200"
+          />
+        </a>
+      </div>
+      <Image
+        height={1920}
+        width={1080}
+        quality={100}
+        src={schedule}
+        alt="Image describing the feeling of comfort in Laira Balance experience"
+        class="w-full h-screen object-right-bottom object-cover filter brightness-75 hidden lg:block"
+      />
+      <Image
+        height={1920}
+        width={1080}
+        quality={100}
+        src={schedule_sm}
+        alt="Image describing the feeling of comfort in Laira Balance experience"
+        class="w-full h-screen object-right-bottom object-cover filter brightness-75 lg:hidden"
+      />
+    </section>
+    <section id="schedule_widget" class="min-h-screen w-full">
+      <!-- Mindbody Schedules widget begin -->
+      <div
+        class="mindbody-widget"
+        data-widget-type="Schedules"
+        data-widget-id="bb38331a363"
+      >
+      </div>
+      <script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"
+      ></script>
+      <!-- Mindbody Schedules widget end -->
+    </section>
+  </main>
+</Layout>
