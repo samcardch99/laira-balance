@@ -5,6 +5,7 @@ import ReserveButton from "../components/helpers/ReserveButton.astro";
 
 import "../styles/global.css";
 import { Toaster } from "sonner";
+import Menu from "../components/Menu.astro";
 ---
 
 <!doctype html>
@@ -17,6 +18,8 @@ import { Toaster } from "sonner";
     <title>Laira Balance</title>
   </head>
   <body>
+    <Menu />
+
     <Toaster client:idle />
 
     <ReserveButton />

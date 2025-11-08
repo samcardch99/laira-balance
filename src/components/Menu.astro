@@ -8,12 +8,11 @@ import Logo_sm from "../assets/footer/logo_sm.svg";
 import Logo from "../assets/footer/logo.svg";
 
 import { Image } from "astro:assets";
-const { isOpen } = Astro.props;
 ---
 
 <section
   id="menu"
-  class={`h-screen w-full text-secondary bg-pinkCustom px-8 lg:px-20 relative transition-opacity ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+  class={`fixed h-screen w-full text-secondary bg-pinkCustom px-8 lg:pl-20  transition-opacity z-[200] pointer-events-none opacity-0`}
 >
   <div class="flex flex-col h-full gap-8 pt-32 pb-12">
     <h1
@@ -108,7 +107,20 @@ const { isOpen } = Astro.props;
           <span>7:00 AM - 7:30 PM</span>
         </div>
       </div>
-      <button>CERRAR</button>
     </div>
   </div>
+  <button class="close-button absolute right-14 top-6 text-secondary text-5xl"
+    >X</button
+  >
 </section>
+<script is:inline>
+  const menu1 = document.getElementById("menu");
+  const close_button = menu1.querySelector("close-button");
+
+  close_button.addEventListener("click", () => {
+    console.log("close button clicked");
+
+    menu1.classList.toggle("opacity-0");
+    menu1.classList.toggle("pointer-events-none");
+  });
+</script>

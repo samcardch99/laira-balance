@@ -1,6 +1,11 @@
 ---
 import Menu from "./Menu.astro";
+
 let isOpen = false;
+
+function toggleMenu() {
+  isOpen = !isOpen;
+}
 ---
 
 <header
@@ -38,17 +43,15 @@ let isOpen = false;
     </div>
     <button class="open-menu-button"> Menú </button>
   </div>
-  <Menu isOpen={isOpen} />
 </header>
 
 <script is:inline>
   console.log("Navbar script loaded");
-  let isOpen = false;
   const menu_button = document.querySelector(".open-menu-button");
+  const menu = document.getElementById("menu");
   menu_button.addEventListener("click", () => {
-    isOpen = !isOpen;
-
-    console.log("Menu button clicked");
+    menu.classList.toggle("opacity-100");
+    menu.classList.toggle("pointer-events-auto");
   });
   window.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("header");
