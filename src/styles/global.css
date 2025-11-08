@@ -84,6 +84,10 @@
 }
 
 html {
+  @apply 2xl-custom:text-[1.33rem] lg:text-[1rem] xl:text-[0.71rem] 2xl-prev:text-base 2xl:text-base 3xl-custom:text-[2.3rem];
+}
+
+html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
