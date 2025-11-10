@@ -27,6 +27,11 @@ export default function EventsIsland() {
       id="events_grid"
       className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-8"
     >
+      {(!posts || posts.length === 0) && (
+        <p className="text-center text-primary">
+          No hay eventos disponibles en este momento.
+        </p>
+      )}
       {posts.map((post) => (
         <div
           key={post._id}
