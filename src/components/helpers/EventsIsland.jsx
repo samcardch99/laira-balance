@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { sanityClient } from "sanity:client";
+import Clock from "../../assets/icons/time.svg";
+import Calendar from "../../assets/icons/calendar.svg";
+import Location from "../../assets/icons/event_location.svg";
 
 const POSTS_QUERY = `*[_type == "post"]{
   _id,
@@ -38,7 +41,24 @@ export default function EventsIsland() {
           />
           <div className="flex flex-col gap-1">
             <h3 className="font-bold text-2xl">{post.title}</h3>
-            <p className="text-sm text-primary/80">{post.location}</p>
+            <div class="flex gap-2 text-sm">
+              <img src="src/assets/icons/calendar.svg" class="h-4" alt="test" />
+              <h4>{new Date(post.Date).toLocaleDateString()}</h4>
+            </div>
+            <div class="flex gap-2 text-sm">
+              <img src="src/assets/icons/time.svg" class="h-4" alt="test" />
+
+              <h4>8:00 AM - 9:30 AM</h4>
+            </div>
+            <div class="flex gap-2 text-sm">
+              <img
+                src="src/assets/icons/event_location.svg"
+                class="h-4"
+                alt="test"
+              />
+
+              <h4>{post.location}</h4>
+            </div>
           </div>
         </div>
       ))}
