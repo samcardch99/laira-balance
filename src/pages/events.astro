@@ -11,18 +11,7 @@ import Calendar from "../assets/icons/calendar.svg";
 import Location from "../assets/icons/event_location.svg";
 import type { SanityDocument } from "@sanity/client";
 import { sanityClient } from "sanity:client";
-
-const POSTS_QUERY = `*[_type == "post"]{
-  _id,
-  title,
-    Date,
-    descripcion,
-    "imageUrl": image.asset->url,
-    location
-
-}`;
-
-const posts = await sanityClient.fetch<SanityDocument[]>(POSTS_QUERY);
+import EventsIsland from "../components/helpers/EventsIsland";
 ---
 
 <Layout>
@@ -59,43 +48,7 @@ const posts = await sanityClient.fetch<SanityDocument[]>(POSTS_QUERY);
         class="w-8 md:w-10 lg:w-10 group-hover:scale-105 transition-transform duration-200 text-primary"
       />
     </a>
-    <section
-      id="events_grid"
-      class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row place-items-center gap-12 md:gap-8 lg:gap-16"
-    >
-      {
-        posts.map((post) => (
-          <div class="flex flex-col gap-4 p-3 aspect-square max-w-[550px] md:w-full border border-primary/50 text-primary hover:bg-pinkCustom/50 transition-colors duration-200">
-            <img
-              src={post.imageUrl}
-              class="w-full h-2/3 object-cover"
-              alt="test"
-            />
-            <div class="flex flex-col gap-1">
-              <h3 class="font-bold text-2xl">{post.title}</h3>
-              <div class="flex gap-2 text-sm">
-                <>
-                  <Calendar class="h-4" />
-                  <h4>{new Date(post.Date).toLocaleDateString()}</h4>
-                </>
-              </div>
-              <div class="flex gap-2 text-sm">
-                <>
-                  <Clock class="h-4" />
-                  <h4>8:00 AM - 9:30 AM</h4>
-                </>
-              </div>
-              <div class="flex gap-2 text-sm">
-                <>
-                  <Location class="h-4" />
-                  <h4>{post.location}</h4>
-                </>
-              </div>
-            </div>
-          </div>
-        ))
-      }
-    </section>
+    <EventsIsland client:load />
   </section>
 </Layout>
 <style>

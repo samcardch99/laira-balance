@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [lenis(), react(), tailwind(), sanity({
     projectId: "47mfywui",
     dataset: "production",
-    useCdn: false, // for static builds
+    useCdn: true, // for static builds
   })],
   i18n: {
     locales: ["es", "en"],
