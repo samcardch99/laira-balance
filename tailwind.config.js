@@ -10,7 +10,7 @@ export default {
         darkPink: '#a78270',
       },
       screens: {
-        'thin-screen': { raw: '(max-width: 370px)' },
+        'thin-screen': { raw: '(max-width: 380px)' },
         'md-vertical': { raw: '(min-width: 768px) and (max-aspect-ratio: 1/1)' },
         'md-custom': '637px',
         'md-custom-lg': { raw: '(min-width: 768px) and (max-width: 1023px)' },

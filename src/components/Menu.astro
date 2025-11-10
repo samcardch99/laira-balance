@@ -5,21 +5,58 @@ import Location from "../assets/icons/location.svg";
 import Instagram from "../assets/icons/instagram.svg";
 import Clock from "../assets/icons/clock.svg";
 import Logo_sm from "../assets/footer/logo_sm.svg";
-import Logo from "../assets/footer/logo.svg";
-
+import Close_Menu from "../assets/icons/close_menu.svg";
 import { Image } from "astro:assets";
 ---
 
 <section
+  data-lenis-prevent
   id="menu"
-  class={`fixed h-screen w-full text-secondary bg-pinkCustom px-8 lg:pl-20  transition-opacity z-[200] pointer-events-none opacity-0`}
+  class="md:hidden flex flex-col justify-between gap-12 pt-20 pb-12 fixed h-[100dvh] w-full text-secondary bg-pinkCustom px-10 lg:pl-20 transition-opacity duration-200 z-[200] pointer-events-none opacity-0 overflow-y-auto"
 >
-  <div class="flex flex-col h-full gap-8 pt-32 pb-12">
-    <h1
+  <div class="flex flex-col gap-4">
+    <h2
+      class="thin-screen:text-4xl text-5xl md:text-6xl lg:text-8xl italic font-bold"
+    >
+      Menu
+    </h2>
+    <div class="flex flex-col w-full gap-3 items-start">
+      <div class="flex flex-col w-full">
+        <a href="/" class="font-bold italic text-xl">Home</a>
+        <div class="w-full h-px bg-secondary"></div>
+      </div>
+      <div class="flex flex-col w-full">
+        <a href="/about" class="font-bold italic text-xl">Sobre Nosotros</a>
+        <div class="w-full h-px bg-secondary"></div>
+      </div>
+      <div class="flex flex-col w-full">
+        <a href="/pricing" class="font-bold italic text-xl">Clases</a>
+        <div class="w-full h-px bg-secondary"></div>
+      </div>
+      <div class="flex flex-col w-full">
+        <a href="/events" class="font-bold italic text-xl">Eventos</a>
+        <div class="w-full h-px bg-secondary"></div>
+      </div>
+      <div class="flex flex-col w-full">
+        <a href="/schedule" class="font-bold italic text-xl">Reservas</a>
+        <div class="w-full h-px bg-secondary"></div>
+      </div>
+      <div class="flex flex-col w-full">
+        <a href="/" class="font-bold italic text-xl">Boutique</a>
+        <div class="w-full h-px bg-secondary"></div>
+      </div>
+      <div class="flex flex-col w-full">
+        <a href="/contact" class="font-bold italic text-xl">Contacto</a>
+        <div class="w-full h-px bg-secondary"></div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4">
+    <h2
       class="thin-screen:text-4xl text-5xl md:text-6xl lg:text-8xl italic font-bold"
     >
       Contáctanos!
-    </h1>
+    </h2>
     <div
       class="flex flex-col md-vertical:flex-col lg:flex-row justify-normal gap-7 lg:justify-start text-base"
     >
@@ -109,18 +146,22 @@ import { Image } from "astro:assets";
       </div>
     </div>
   </div>
-  <button class="close-button absolute right-14 top-6 text-secondary text-5xl"
-    >X</button
-  >
+
+  <Image src={Logo_sm} alt="Logo Laira Balance" class="w-full" />
+  <button
+    id="close-button"
+    class="absolute right-8 top-4 text-secondary text-5xl"
+    ><Close_Menu class="h-12 text-secondary" />
+  </button>
 </section>
+
 <script is:inline>
   const menu1 = document.getElementById("menu");
-  const close_button = menu1.querySelector("close-button");
-
+  const close_button = document.getElementById("close-button");
   close_button.addEventListener("click", () => {
-    console.log("close button clicked");
-
-    menu1.classList.toggle("opacity-0");
-    menu1.classList.toggle("pointer-events-none");
+    menu1.classList.toggle("opacity-100");
+    menu1.classList.toggle("pointer-events-auto");
+    if (!menu1.classList.contains("opacity-100")) {
+    }
   });
 </script>

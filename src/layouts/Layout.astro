@@ -2,10 +2,9 @@
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import ReserveButton from "../components/helpers/ReserveButton.astro";
-
 import "../styles/global.css";
-import { Toaster } from "sonner";
 import Menu from "../components/Menu.astro";
+import "lenis/dist/lenis.css";
 ---
 
 <!doctype html>
@@ -19,9 +18,6 @@ import Menu from "../components/Menu.astro";
   </head>
   <body>
     <Menu />
-
-    <Toaster client:idle />
-
     <ReserveButton />
     <Navbar />
     <slot />

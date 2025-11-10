@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Down_arrow_circle from "../assets/icons/down_arrow_circle.svg";
+import { Image } from "astro:assets";
+import Event_1_Image from "../assets/events/event_1.jpg";
+import Event_2_Image from "../assets/events/event_2.jpg";
+import Event_3_Image from "../assets/events/event_3.jpg";
+import Event_4_Image from "../assets/events/event_4.jpg";
+import Clock from "../assets/icons/time.svg";
+import Calendar from "../assets/icons/calendar.svg";
+import Location from "../assets/icons/event_location.svg";
+import type { SanityDocument } from "@sanity/client";
+import { sanityClient } from "sanity:client";
+
+const POSTS_QUERY = `*[_type == "post"]{
+  _id,
+  title,
+    Date,
+    descripcion,
+    "imageUrl": image.asset->url,
+    location
+
+}`;
+
+const posts = await sanityClient.fetch<SanityDocument[]>(POSTS_QUERY);
+---
+
+<Layout>
+  <section
+    id="events_interior"
+    class="flex flex-col gap-12 w-full min-h-screen bg-secondary px-8 md:px-10 lg:px-20 pb-10"
+  >
+    <section id="events_text" class="prose prose-xl text-primary pt-32">
+      <h1
+        class="italic font-bold text-5xl lg:text-6xl thin-screen:text-3xl text-primary"
+      >
+        Eventos
+      </h1>
+      <p>
+        En Laira Balance, cada evento es una extensión de nuestra filosofía:
+        crear espacios donde el bienestar se viva con propósito y elegancia.
+      </p>
+      <p>
+        Diseñamos experiencias sensoriales que combinan movimiento, conexión y
+        calma desde sesiones especiales de yoga al atardecer hasta encuentros
+        dedicados al arte del descanso y la nutrición consciente.
+      </p>
+      <p>
+        Más que actividades, son rituales compartidos. Momentos para reconectar
+        con uno mismo y con una comunidad que celebra el balance como estilo de
+        vida.
+      </p>
+    </section>
+    <a
+      href="#events_grid"
+      class="hover:bg-pinkCustom/50 w-10 rounded-full transition-all duration-200 cursor-pointer group"
+    >
+      <Down_arrow_circle
+        class="w-8 md:w-10 lg:w-10 group-hover:scale-105 transition-transform duration-200 text-primary"
+      />
+    </a>
+    <section
+      id="events_grid"
+      class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row place-items-center gap-12 md:gap-8 lg:gap-16"
+    >
+      {
+        posts.map((post) => (
+          <div class="flex flex-col gap-4 p-3 aspect-square max-w-[550px] md:w-full border border-primary/50 text-primary hover:bg-pinkCustom/50 transition-colors duration-200">
+            <img
+              src={post.imageUrl}
+              class="w-full h-2/3 object-cover"
+              alt="test"
+            />
+            <div class="flex flex-col gap-1">
+              <h3 class="font-bold text-2xl">{post.title}</h3>
+              <div class="flex gap-2 text-sm">
+                <>
+                  <Calendar class="h-4" />
+                  <h4>{new Date(post.Date).toLocaleDateString()}</h4>
+                </>
+              </div>
+              <div class="flex gap-2 text-sm">
+                <>
+                  <Clock class="h-4" />
+                  <h4>8:00 AM - 9:30 AM</h4>
+                </>
+              </div>
+              <div class="flex gap-2 text-sm">
+                <>
+                  <Location class="h-4" />
+                  <h4>{post.location}</h4>
+                </>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </section>
+</Layout>
+<style>
+  p {
+    @apply text-lg;
+  }
+</style>

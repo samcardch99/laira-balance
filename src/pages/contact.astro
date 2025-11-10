@@ -112,11 +112,16 @@ import { Image } from "astro:assets";
             <span>7:00 AM - 7:30 PM</span>
           </div>
         </div>
-        <Form
-          client:visible
-          buttonClass="darkPink"
-          className="text-primary input-border"
-        />
+        <div class="mr-[5vw] md-custom:mr-[20vw] lg:mr-[12vw]">
+          <script
+            src="https://widgets.mindbodyonline.com/javascripts/healcode.js"
+            type="text/javascript"></script>
+          <healcode-widget
+            data-type="prospects"
+            data-widget-partner="object"
+            data-widget-id="bb61409a363"
+            data-widget-version="0"></healcode-widget>
+        </div>
       </div>
     </div>
   </section>

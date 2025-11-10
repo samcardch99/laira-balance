@@ -17,7 +17,7 @@ import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
     quality={80}
     src={EventImage_sm}
     alt="Event image mobile"
-    class="z-0 h-full w-full object-cover brightness-75 md:hidden"
+    class="z-0 h-full w-full object-cover brightness-75 md:hidden border-t border-primary"
   />
   <Image
     width={1920}
@@ -25,13 +25,13 @@ import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
     quality={80}
     src={EventImage}
     alt="Event image desktop"
-    class="z-0 h-full w-full object-cover brightness-75 hidden md:block"
+    class="z-0 h-full w-full object-cover brightness-75 hidden md:block border-t border-primary"
   />
 
   <!-- CONTENIDO SUPERIOR (Título y botón) -->
   <div class="absolute bottom-16 right-10 flex flex-col gap-2 items-end z-30">
     <h2 class="text-5xl md:text-6xl text-secondary font-bold">Eventos</h2>
-    <a href="/classes" class="rounded-full light text-sm px-4 py-2 w-fit"
+    <a href="/events" class="rounded-full light text-sm px-4 py-2 w-fit"
       >Ver Nuestro Eventos</a
     >
   </div>

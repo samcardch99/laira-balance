@@ -7,6 +7,9 @@ dist/
 # dependencies
 node_modules/
 
+#sanity cms
+sanity
+
 # logs
 npm-debug.log*
 yarn-debug.log*

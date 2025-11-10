@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 
 // ✅ 1. Memoizamos el schema para no recalcularlo en cada render
 function useFormSchema() {
@@ -82,6 +82,8 @@ export default function HomeFooter({
   };
   return (
     <div className="w-full mt-7 mb-7 lg:mt-0 lg:mb-0 lg:w-1/3 z-50 max-w-[30rem]">
+      <Toaster client:idle />
+
       <h2 className={`italic text-2xl font-bold ${className}  mb-4`}>
         Envíanos tus preguntas <br /> y comentarios.
       </h2>

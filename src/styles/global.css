@@ -84,7 +84,7 @@
 }
 
 html {
-  @apply 2xl-custom:text-[1.33rem] lg:text-[1rem] xl:text-[0.71rem] 2xl-prev:text-base 2xl:text-base 3xl-custom:text-[2.3rem];
+  @apply lg:text-[1rem] xl:text-[0.71rem] 2xl-prev:text-base 2xl:text-base 2xl-custom:text-[1.5rem] 3xl-custom:text-[2.3rem];
 }
 
 html {
@@ -101,10 +101,9 @@ body {
   max-width: 100vw;
   min-height: 100vh;
   width: 100vw;
-  height: 100%;
+  height: auto;
   font-family: "Warming", Inter, Roboto, "Helvetica Neue", "Arial Nova",
     "Nimbus Sans", Arial, sans-serif;
-  height: 100%;
   overflow-x: hidden;
   @apply tracking-wide;
 }
@@ -150,7 +149,7 @@ body {
 }
 
 .link-underline {
-  @apply relative inline-block w-fit;
+  @apply relative  w-fit;
 }
 
 .link-underline::after {
