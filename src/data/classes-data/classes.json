@@ -1,0 +1,37 @@
+[
+    {
+        "title": "SculpBody (A/C)",
+        "price": "$40",
+        "subtitle": "Entrenamiento enfocado en tonificar y fortalecer el cuerpo completo mediante movimientos controlados."
+    },
+    {
+        "title": "Pilates (A/C)",
+        "price": "$40",
+        "subtitle": "Clase de pilates centrada en la alineación, respiración y fuerza del core, ideal para mejorar postura y flexibilidad."
+    },
+    {
+        "title": "Pilates Estretch (A/C)",
+        "price": "$40",
+        "subtitle": "Sesión suave de pilates orientada a estiramientos y movilidad articular profunda."
+    },
+    {
+        "title": "Yoga Flow (A/C)",
+        "price": "$40",
+        "subtitle": "Flujo dinámico de posturas de yoga enlazadas con respiración consciente para aumentar energía y equilibrio."
+    },
+    {
+        "title": "Pilates Cute Body (A/C)",
+        "price": "$40",
+        "subtitle": "Entrenamiento de pilates con enfoque en esculpir glúteos, abdomen y piernas."
+    },
+    {
+        "title": "Pilates Abs (A/C)",
+        "price": "$40",
+        "subtitle": "Rutina intensa de pilates centrada exclusivamente en el fortalecimiento abdominal."
+    },
+    {
+        "title": "Barre (A/C)",
+        "price": "$40",
+        "subtitle": "Fusión de ballet, pilates y entrenamiento funcional que trabaja fuerza, equilibrio y coordinación."
+    }
+]

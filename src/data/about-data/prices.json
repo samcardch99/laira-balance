@@ -12,7 +12,22 @@
     {
       "title": "Yoga Flow / Yoga Sculpt ",
       "price": "$40",
-      "subtitle": "Dynamic sessions for body and mind combining \n strength, breath, and focus."
+      "subtitle": "Dynamic sessions for body and mind combining \n strength, breath, and focus. "
+    },
+        {
+      "title": "Barre / Ballet Fit ",
+      "price": "$40",
+      "subtitle": "A fusion of ballet, pilates, and toning with \n inspiring music."
+    },
+    {
+      "title": "Pilates Clásico (Mat) ",
+      "price": "$40",
+      "subtitle": "Control, strength, and elongation exercises \n focused on the core."
+    },
+    {
+      "title": "Yoga Flow / Yoga Sculpt ",
+      "price": "$40",
+      "subtitle": "Dynamic sessions for body and mind combining \n strength, breath, and focus. "
     }
   ]
 

@@ -1,0 +1,17 @@
+[
+    {
+      "nombre": "Paquete de 5 clases",
+      "precio": 170,
+      "precio_unitario": 34,
+      "expire": "Expira a los 3 meses desde la compra",
+      "link" : "https://clients.mindbodyonline.com/classic/ws?studioid=5749033&stype=41&sTG=27&prodId=100010"
+    },
+    {
+      "nombre": "Paquete de 10 clases",
+      "precio": 280,
+      "precio_unitario": 28,
+      "expire": "Expira a los 6 meses desde la compra",
+      "link" : "https://clients.mindbodyonline.com/classic/ws?studioid=5749033&stype=41&sTG=27&prodId=100010"
+
+    }
+  ]

@@ -1,58 +1,79 @@
 ---
-import prices from "../data/about-data/prices.json";
 import PriceCard from "../components/PriceCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import right_arrow from "../assets/prices/right_arrow.svg";
 import trial from "../assets/prices/trial.jpg";
 import class_pack from "../assets/prices/class_pack.jpg";
+import type { SanityDocument } from "@sanity/client";
+import { sanityClient } from "sanity:client";
+const CLASES_QUERY = `*[_type == "clases"]{
+  _id,
+    title,
+    "subtitle": subtitle[0].children[0].text,
+    price,
+
+}`;
+const PAQUETES_QUERY = `*[_type == "paquetes"] | order(precio asc)
+{
+    nombre,
+    precio,
+    precio_unitario,
+    link
+}`;
+const prices = await sanityClient.fetch<SanityDocument[]>(CLASES_QUERY);
+const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
+
 ---
 
 <Layout>
   <main class="min-h-screen w-full flex flex-col relative">
     <section
       id="about_prices"
-      class="w-full min-h-[90vh] relative px-16 xl:px-32 flex flex-col justify-center self-center pt-32 pb-20 md:pb-0 md:pt-0 gap-20 md:gap-10"
+      class="w-full min-h-[90vh] relative content-center"
     >
       <div
-        class="w-full md:items-center flex flex-col md:flex-row gap-20 md:gap-10"
+        class="px-16 xl:px-32 pt-32 pb-20 md:py-0 md:my-32 grid justify-center place-items-center grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-20 md:gap-16"
       >
-        <div class="flex w-full gap-4 flex-1 -ml-4 md:ml-0 md:pr-20">
+        <div class="flex w-full gap-4 -ml-4 md:ml-0">
           <h1 class="font-bold italic text-6xl lg:text-8xl text-primary">
             Prices
           </h1>
           <Image
             src={right_arrow}
             alt="right_arrow"
-            class="hidden md:block h-8 self-center"
+            class="hidden md:block h-8 self-center flex-1"
           />
         </div>
-        <div class="h-48 bg-primary w-px hidden md:block"></div>
-        <PriceCard
-          title={prices[0].title}
-          price={prices[0].price}
-          subtitle={prices[0].subtitle}
-          href="/schedule#schedule_widget"
-          className="flex-1 md:pl-20"
-        />
-      </div>
-      <div class="bg-primary w-full h-px hidden md:block"></div>
-      <div class="w-full flex flex-col md:flex-row md:gap-10 gap-20">
-        <PriceCard
-          title={prices[1].title}
-          price={prices[1].price}
-          subtitle={prices[1].subtitle}
-          href="/schedule#schedule_widget"
-          className="flex-1 md:pr-20"
-        />
-        <div class="h-48 bg-primary w-px hidden md:block"></div>
-        <PriceCard
-          title={prices[2].title}
-          price={prices[2].price}
-          subtitle={prices[2].subtitle}
-          href="/contact"
-          className="flex-1 md:pl-20"
-        />
+        {
+          (!prices || prices.length === 0) && (
+            <p class="text-center text-primary">
+              No hay clases disponibles en este momento.
+            </p>
+          )
+        }
+        {
+          prices.map((price, index) => {
+            return (
+              <>
+                {index % 2 === 0 && (
+                  <div class="hidden md:block w-px bg-primary h-full" />
+                )}
+                <PriceCard
+                  title={price.title}
+                  price={price.price}
+                  subtitle={price.subtitle}
+                  href="/schedule#schedule_widget"
+                  class="w-full"
+                />
+
+                {index % 2 === 0 && index < prices.length - 1 && (
+                  <div class="hidden md:block col-span-1 md:col-span-3 h-px bg-primary w-full" />
+                )}
+              </>
+            );
+          })
+        }
       </div>
     </section>
     <section
@@ -94,43 +115,56 @@ import class_pack from "../assets/prices/class_pack.jpg";
     </section>
     <section
       id="about_class_pack"
-      class="w-full pt-20 relative flex flex-col md:flex-row md:h-[100dvh] md:items-center border border-t border-primary"
+      class="w-full pt-32 relative flex flex-col md:min-h-[100dvh] md:items-start border border-t border-primary"
     >
-      <div
-        class="flex flex-col gap-20 md:justify-between w-full px-10 md:flex-1"
-      >
-        <div class="flex w-full justify-between">
-          <div class="flex flex-col gap-6 w-3/5">
-            <div class="flex flex-col">
-              <h2 class="italic font-bold text-3xl lg:text-5xl text-primary">
-                5 Class Pack <br /> $170
-              </h2>
-              <p class="text-base italic lg:text-xl text-primary/90">
-                $34 per class
-              </p>
+      <div class="flex flex-col md:flex-row md:items-center w-full">
+        <div
+          class="flex flex-col gap-10 md:justify-between w-full px-10 md:flex-1"
+        >
+        {
+          packages.map((class_package) => {
+            return(
+                        <div class="flex w-full justify-between">
+            <div class="flex flex-col gap-6 w-3/5">
+              <div class="flex flex-col">
+                <h2 class="italic font-bold text-3xl lg:text-4xl text-primary">
+                  {class_package.nombre}<br /><span class="before:content-['$']">{class_package.precio}</span>
+                </h2>
+                <p class="text-base italic lg:text-xl text-primary/90 before:content-['$']">
+                 {class_package.precio_unitario}<span> por clase</span>
+                </p>
+              </div>
+              <p class="text-sm lg:text-base text-primary/50 -mt-6">{class_package.expire}</p>
             </div>
-            <p class="text-lg lg:text-xl">Expires 3 months from purchase.</p>
+            <a
+              target="_blank"
+              href={class_package.link}
+              class="rounded-full h-fit self-center px-6 py-3 darkPink lg:text-lg"
+              >Purchase</a
+            >
           </div>
-          <a
-            target="_blank"
-            href="https://clients.mindbodyonline.com/classic/ws?studioid=5749033&stype=41&sTG=27&prodId=100010"
-            class="rounded-full h-fit self-center px-6 py-3 darkPink lg:text-lg"
-            >Purchase</a
-          >
-        </div>
-        <div class="w-full h-px bg-primary"></div>
-        <p class="italic font-bold text-2xl lg:text-3xl">
+          <div class="w-full h-px bg-primary"></div>
+            )
+          })
+        }
+
+<div class="flex flex-col md:w-1/2">
+        <p class="italic text-darkPink/80 font-bold text-xl lg:text-lg">
           Includes locker access, facial towel, and aromatherapy at the end.
         </p>
       </div>
-      <Image
-        src={class_pack}
-        alt="class pack"
-        height={1920}
-        width={1080}
-        quality={90}
-        class="w-full h-[40vh] md:h-[50vh] lg:h-[60vh] mt-12 md:mt-0 object-cover md:flex-1 md:w-1/2"
-      />
+        </div>
+        <Image
+          src={class_pack}
+          alt="class pack"
+          height={1920}
+          width={1080}
+          quality={90}
+          class="w-full h-[40vh] md:h-[50vh] lg:h-[60vh] mt-12 md:mt-0 object-cover md:flex-1 md:w-1/2"
+        />
+      </div>
+
+      
     </section>
   </main>
 </Layout>

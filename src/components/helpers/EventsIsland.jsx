@@ -40,7 +40,7 @@ export default function EventsIsland() {
           <img
             src={post.imageUrl}
             alt={post.title}
-            className="w-full h-64 object-cover"
+            className="w-96 h-64 object-cover"
           />
           <div className="flex flex-col gap-1">
             <h3 className="font-bold text-2xl">{post.title}</h3>
