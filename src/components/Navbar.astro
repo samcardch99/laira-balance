@@ -77,9 +77,9 @@ function toggleMenu() {
       classes: "light",
       footer: "light",
       events: "light",
-      about_prices: "darkPink",
-      about_trial: "light",
-      about_class_pack: "darkPink",
+      prices_classes: "darkPink",
+      prices_trial: "light",
+      prices_class_pack: "darkPink",
       contact: "darkPink",
       contact_map: "darkPink",
       schedule_section: "light",
@@ -100,10 +100,11 @@ function toggleMenu() {
       memberships_1: "primary",
       memberships_2: "primary",
       footer: "secondary",
-      about_prices: "primary",
-      about_trial: "secondary",
-      about_class_pack: "primary",
+      prices_classes: "primary",
+      prices_trial: "secondary",
+      prices_class_pack: "primary",
       contact: "primary",
+      contact_map: "primary",
       about_interior: "primary",
       schedule_section: "secondary",
       schedule_widget: "primary",
@@ -117,6 +118,7 @@ function toggleMenu() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
+            console.log(entry.target.id + "___sSasasa");
             header.classList.replace(
               colors_navbar[id] === "primary" ? "secondary" : "primary",
               colors_navbar[id] === "primary" ? "primary" : "secondary"
