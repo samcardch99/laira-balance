@@ -58,6 +58,13 @@ export const ui = {
         'schedule.book_your_class': 'book your class',
         'pricing.reserve': 'Reserve',
         'pricing.per-class': ' per class',
+        'menu.about': 'About Us',
+        'menu.classes': 'Classes',
+        'menu.events': 'Events',
+        'menu.schedules': 'Schedules',
+        'menu.boutique': 'Boutique',
+        'menu.contact': 'Contact',
+        'menu.contact-us': 'Contact Us',
 
 
     },
@@ -114,6 +121,14 @@ export const ui = {
         'schedule.book_your_class': 'Reserva tu clase',
         'pricing.reserve': 'Reservar',
         'pricing.per-class': ' por clase',
+        'menu.about': 'Sobre Nosotros',
+        'menu.classes': 'Clases',
+        'menu.events': 'Eventos',
+        'menu.schedules': 'Reservas',
+        'menu.boutique': 'Boutique',
+        'menu.contact': 'Contacto',
+        'menu.contact-us': 'Contáctanos',
+
 
     },
 } as const;

@@ -7,6 +7,10 @@ import Clock from "../assets/icons/clock.svg";
 import Logo_sm from "../assets/footer/logo_sm.svg";
 import Close_Menu from "../assets/icons/close_menu.svg";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
 ---
 
 <section
@@ -26,27 +30,34 @@ import { Image } from "astro:assets";
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/about" class="font-bold italic text-xl">Sobre Nosotros</a>
+        <a href="/about" class="font-bold italic text-xl">{t("menu.about")}</a>
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/pricing" class="font-bold italic text-xl">Clases</a>
+        <a href="/pricing" class="font-bold italic text-xl"
+          >{t("menu.classes")}</a
+        >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/events" class="font-bold italic text-xl">Eventos</a>
+        <a href="/events" class="font-bold italic text-xl">{t("menu.events")}</a
+        >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/schedule" class="font-bold italic text-xl">Reservas</a>
+        <a href="/schedule" class="font-bold italic text-xl"
+          >{t("menu.schedules")}</a
+        >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/" class="font-bold italic text-xl">Boutique</a>
+        <a href="/" class="font-bold italic text-xl">{t("menu.boutique")}</a>
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/contact" class="font-bold italic text-xl">Contacto</a>
+        <a href="/contact" class="font-bold italic text-xl"
+          >{t("menu.contact")}</a
+        >
         <div class="w-full h-px bg-secondary"></div>
       </div>
     </div>
@@ -55,7 +66,7 @@ import { Image } from "astro:assets";
     <h2
       class="thin-screen:text-4xl text-5xl md:text-6xl lg:text-8xl italic font-bold"
     >
-      Contáctanos!
+      {t("menu.contact-us")}!
     </h2>
     <div
       class="flex flex-col md-vertical:flex-col lg:flex-row justify-normal gap-7 lg:justify-start text-base"

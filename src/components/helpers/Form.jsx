@@ -87,7 +87,7 @@ export default function HomeFooter({
         <input
           {...register("username")}
           placeholder={t("form.username")}
-          className="w-2/3  placeholder:text-xs placeholder:pl-1 pl-1 py-1"
+          className="w-2/3  placeholder:text-xs placeholder:pl-1 pl-1 py-1 text-primary"
         />
         {errors.username && (
           <p className="text-sm text-red-900">{errors.username.message}</p>
@@ -97,7 +97,7 @@ export default function HomeFooter({
         <input
           {...register("email")}
           placeholder={t("form.email")}
-          className="w-2/3 placeholder:text-xs placeholder:pl-1 py-1 pl-1"
+          className="w-2/3 placeholder:text-xs placeholder:pl-1 py-1 pl-1  text-primary"
         />
         {errors.email && (
           <p className="text-sm text-red-900">{errors.email.message}</p>
@@ -110,7 +110,7 @@ export default function HomeFooter({
         <textarea
           {...register("message")}
           placeholder={t("form.message")}
-          className="w-full placeholder:text-sm placeholder:p-1 py-1 pl-1"
+          className="w-full placeholder:text-sm placeholder:p-1 py-1 pl-1  text-primary"
         />
         {errors.message && (
           <p className="text-sm text-red-900">{errors.message.message}</p>
