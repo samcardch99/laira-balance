@@ -5,26 +5,70 @@ import ReserveButton from "../components/helpers/ReserveButton.astro";
 import "../styles/global.css";
 import Menu from "../components/Menu.astro";
 import "lenis/dist/lenis.css";
-const lang = Astro.currentLocale || "es";
+import { SEO } from "astro-seo";
+import { SEO_TEXT } from "../data/SEO/SEO_TEXT.js";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const { title, description } = Astro.props;
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
+const seo = SEO_TEXT[language] || SEO_TEXT["es"];
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Laira Balance</title>
+    <SEO
+      title={title}
+      description={description}
+      titleTemplate=" %s - Laira Balance"
+      openGraph={{
+        image: {
+          type: "image/png",
+          width: 1200,
+          height: 630,
+          alt: "Laira Balance Studio Open Graph Image",
+        },
+        article: {
+          publishedTime: new Date().toISOString(),
+          authors: ["Borsoga Studio"],
+        },
+        basic: {
+          title: seo.title,
+          type: "website",
+          image: "/og_logo.png",
+        },
+        optional: {
+          description: seo.description,
+        },
+      }}
+      extend={{
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: "/og_logo.png",
+          },
+          { name: "twitter:title", content: seo.title },
+          {
+            name: "twitter:description",
+            content: seo.description,
+          },
+        ],
+      }}
+    />
   </head>
-  <body>
-    <Menu />
-    <ReserveButton />
-    <Navbar />
-    <slot />
-    <Footer />
-  </body>
 </html>
+<body>
+  <Menu />
+  <ReserveButton />
+  <Navbar />
+  <slot />
+  <Footer />
+</body>
 
 <style>
   html,

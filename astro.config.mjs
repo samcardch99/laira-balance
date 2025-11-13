@@ -15,7 +15,16 @@ export default defineConfig({
     projectId: "47mfywui",
     dataset: "production",
     useCdn: true, // for static builds
-  }), sitemap()],
+  }), sitemap({
+    i18n: {
+      defaultLocale: 'es',
+      locales: {
+        en: 'en-US',
+        es: 'es-ES',
+      },
+    },
+  }),],
+
   i18n: {
 
     locales: ["es", "en"],

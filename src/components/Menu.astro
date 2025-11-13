@@ -8,9 +8,18 @@ import Logo_sm from "../assets/footer/logo_sm.svg";
 import Close_Menu from "../assets/icons/close_menu.svg";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const language = getLangFromUrl(Astro.url);
 const t = useTranslations(language);
+const lang = Astro.currentLocale || "es";
+const homeURL = getRelativeLocaleUrl(lang, "/");
+const aboutURL = getRelativeLocaleUrl(lang, "about");
+const pricingURL = getRelativeLocaleUrl(lang, "pricing");
+const eventsURL = getRelativeLocaleUrl(lang, "events");
+const scheduleURL = getRelativeLocaleUrl(lang, "schedule");
+const boutiqueURL = getRelativeLocaleUrl(lang, "/");
+const contactURL = getRelativeLocaleUrl(lang, "contact");
 ---
 
 <section
@@ -26,36 +35,40 @@ const t = useTranslations(language);
     </h2>
     <div class="flex flex-col w-full gap-3 items-start">
       <div class="flex flex-col w-full">
-        <a href="/" class="font-bold italic text-xl">Home</a>
+        <a href={homeURL} class="font-bold italic text-xl">Home</a>
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/about" class="font-bold italic text-xl">{t("menu.about")}</a>
+        <a href={aboutURL} class="font-bold italic text-xl">{t("menu.about")}</a
+        >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/pricing" class="font-bold italic text-xl"
+        <a href={pricingURL} class="font-bold italic text-xl"
           >{t("menu.classes")}</a
         >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/events" class="font-bold italic text-xl">{t("menu.events")}</a
+        <a href={eventsURL} class="font-bold italic text-xl"
+          >{t("menu.events")}</a
         >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/schedule" class="font-bold italic text-xl"
+        <a href={scheduleURL} class="font-bold italic text-xl"
           >{t("menu.schedules")}</a
         >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/" class="font-bold italic text-xl">{t("menu.boutique")}</a>
+        <a href={boutiqueURL} class="font-bold italic text-xl"
+          >{t("menu.boutique")}</a
+        >
         <div class="w-full h-px bg-secondary"></div>
       </div>
       <div class="flex flex-col w-full">
-        <a href="/contact" class="font-bold italic text-xl"
+        <a href={contactURL} class="font-bold italic text-xl"
           >{t("menu.contact")}</a
         >
         <div class="w-full h-px bg-secondary"></div>

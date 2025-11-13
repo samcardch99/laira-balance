@@ -14,11 +14,16 @@ import MembershipsData from "../../data/memberships-data/memberships.json";
 import Footer from "../../components/Footer.astro";
 import { Toaster } from "sonner";
 
+import { getRelativeLocaleUrl } from "astro:i18n";
+const lang = Astro.currentLocale || "es";
+
 const images = [yoga, barre, ballet];
-const lang = "en";
 ---
 
-<Layout>
+<Layout
+  title="Home"
+  description="Discover Laira Balance Studio, a space dedicated to wellness and elegance. Explore our yoga, barre, and ballet classes, exclusive events, and memberships designed for your physical and mental balance. Live with purpose and find calm in every movement."
+>
   <main>
     <Cover />
     <About language="en" />
@@ -32,7 +37,7 @@ const lang = "en";
           imageAlt={classItem.altImage.en}
           className={classItem.className}
           classText={classItem.classText.en}
-          classHref={classItem.classHref}
+          classHref={getRelativeLocaleUrl(lang, classItem.classHref)}
           align={index % 2 === 0 ? "left" : "right"}
         />
       ))

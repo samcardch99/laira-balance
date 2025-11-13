@@ -10,7 +10,10 @@ const language = getLangFromUrl(Astro.url);
 const t = useTranslations(language);
 ---
 
-<Layout>
+<Layout
+  title="Reservas"
+  description="Consulta el horario de clases en Laira Balance Studio. Reserva tu lugar en nuestras sesiones de yoga, barre y ballet diseñadas para tu bienestar y equilibrio. Encuentra el momento perfecto para tu práctica y vive con propósito."
+>
   <main>
     <section id="schedule_section" class="w-full min-h-[100dvh] relative">
       <h1
