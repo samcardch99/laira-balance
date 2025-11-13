@@ -1,21 +1,39 @@
 ---
-import Menu from "./Menu.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
-let isOpen = false;
+const lang = Astro.currentLocale || "es";
+const homeURL = getRelativeLocaleUrl(lang, "/");
+const aboutURL = getRelativeLocaleUrl(lang, "about");
+const scheduleURL = getRelativeLocaleUrl(lang, "schedule");
+const eventsURL = getRelativeLocaleUrl(lang, "events");
+const membershipsURL = getRelativeLocaleUrl(lang, "pricing#prices_memberships");
+const pricingURL = getRelativeLocaleUrl(lang, "pricing");
+const contactURL = getRelativeLocaleUrl(lang, "contact");
+// const boutiqueURL = getRelativeLocaleUrl(lang, "/");
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
-function toggleMenu() {
-  isOpen = !isOpen;
-}
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
+
+const locale = Astro.currentLocale;
+let path = Astro.url.pathname;
+
+// 🔹 Elimina el prefijo de idioma actual
+path = path.replace(/^\/(en|es)(\/|$)/, "/");
+
+// ✅ Genera las rutas correctas
+const urlEN = getRelativeLocaleUrl("en", path);
+const urlES = getRelativeLocaleUrl("es", path);
 ---
 
 <header
   id="navbar"
   class="primary transition-all w-full h-20 px-10 pt-4 pb-6 md:pb-4 md:pt-10 grid grid-cols-3 md:flex md:justify-between fixed z-[100] top-0 left-0 text-lg backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_90%,transparent_100%)]"
 >
-  <div class="w-fit gap-2 flex justify-start items-center md:hidden font-bold">
-    <a href="/en"> EN </a>
+  <div class="w-fit gap-2 flex justify-start items-center font-bold md:hidden">
+    <a href={urlEN} class={locale === "en" ? "text-gray-700" : ""}> EN </a>
     <span class="font-thin">|</span>
-    <a href="/es"> ES </a>
+    <a href={urlES} class={locale === "es" ? "text-gray-700" : ""}> ES </a>
   </div>
   <a class="self-center col-start-2 justify-self-center h-12" href="/">
     <svg
@@ -44,13 +62,29 @@ function toggleMenu() {
       <span class="font-thin">|</span>
       <a href="/es"> ES </a>
     </div>
-    <a href="/" class="md:block hidden link-underline"> Boutique </a>
-    <a href="/schedule" class="hidden md:block link-underline"> Reservas </a>
-    <a href="/pricing" class="hidden md:block link-underline"> Clases </a>
-    <a href="/events" class="hidden md:block link-underline"> Eventos </a>
-    <a href="/contact" class="hidden md:block link-underline"> Contacto </a>
 
-    <button class="open-menu-button md:hidden link-underline"> Menú </button>
+    <a href={scheduleURL} class="hidden md:block link-underline"
+      >{t("nav.schedules")}</a
+    >
+    <a href={pricingURL} class="hidden md:block link-underline"
+      >{t("nav.classes")}
+    </a>
+    <a href={eventsURL} class="hidden md:block link-underline">
+      {t("nav.events")}</a
+    >
+    <a href={contactURL} class="hidden md:block link-underline">
+      {t("nav.contact")}
+    </a>
+    <div
+      class="w-fit gap-2 justify-start items-center font-bold hidden md:flex"
+    >
+      <a href={urlEN} class={locale === "en" ? "text-gray-700" : ""}> EN </a>
+      <span class="font-thin">|</span>
+      <a href={urlES} class={locale === "es" ? "text-gray-700" : ""}> ES </a>
+    </div>
+    <button class="open-menu-button md:hidden link-underline"
+      >{t("nav.menu")}</button
+    >
   </div>
 </header>
 
@@ -120,7 +154,7 @@ function toggleMenu() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            console.log(entry.target.id + "___sSasasa");
+            // console.log(entry.target.id + "___sSasasa");
             header.classList.replace(
               colors_navbar[id] === "primary" ? "secondary" : "primary",
               colors_navbar[id] === "primary" ? "primary" : "secondary"

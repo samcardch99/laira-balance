@@ -1,9 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import schedule from "../assets/schedule-section/schedule.jpg";
-import schedule_sm from "../assets/schedule-section/schedule_sm.jpg";
+import Layout from "../../layouts/Layout.astro";
+import schedule from "../../assets/schedule-section/schedule.jpg";
+import schedule_sm from "../../assets/schedule-section/schedule_sm.jpg";
 import { Image } from "astro:assets";
-import Down_arrow_circle from "../assets/icons/down_arrow_circle.svg";
+import Down_arrow_circle from "../../assets/icons/down_arrow_circle.svg";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
 ---
 
 <Layout>
@@ -12,7 +16,9 @@ import Down_arrow_circle from "../assets/icons/down_arrow_circle.svg";
       <h1
         class="z-10 absolute left-8 top-1/2 -translate-y-2/3 lg:-translate-y-1/2 text-secondary font-bold italic text-5xl md:text-7xl lg:text-9xl leading-[3.5rem]"
       >
-        Center<br />Breathe<br />Glow
+        {t("schedule.center")}<br />{t("schedule.breathe")}<br />{
+          t("schedule.glow")
+        }
       </h1>
       <div
         class="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-4 z-10 justify-center items-center"
@@ -20,7 +26,7 @@ import Down_arrow_circle from "../assets/icons/down_arrow_circle.svg";
         <h2
           class="italic text-base md:text-xl lg:text-2xl text-secondary w-full"
         >
-          book your class
+          {t("schedule.book_your_class")}
         </h2>
         <a
           href="#schedule_widget"
@@ -56,7 +62,7 @@ import Down_arrow_circle from "../assets/icons/down_arrow_circle.svg";
       <div
         class="mindbody-widget"
         data-widget-type="Schedules"
-        data-widget-id="bb38331a363"
+        data-widget-id="bb38350a363"
       >
       </div>
       <script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"

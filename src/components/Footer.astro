@@ -7,6 +7,19 @@ import Location from "../assets/icons/location.svg";
 import Instagram from "../assets/icons/instagram.svg";
 import Clock from "../assets/icons/clock.svg";
 import Form from "./helpers/Form.jsx";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
+
+const lang = Astro.currentLocale || "es";
+const homeURL = getRelativeLocaleUrl(lang, "/");
+const aboutURL = getRelativeLocaleUrl(lang, "about");
+const scheduleURL = getRelativeLocaleUrl(lang, "schedule");
+const eventsURL = getRelativeLocaleUrl(lang, "events");
+const membershipsURL = getRelativeLocaleUrl(lang, "pricing#prices_memberships");
+const boutiqueURL = getRelativeLocaleUrl(lang, "/");
 ---
 
 <section
@@ -21,11 +34,17 @@ import Form from "./helpers/Form.jsx";
         class="flex flex-col md:flex-row w-full lg:w-fit gap-7 md:justify-between"
       >
         <div class="flex flex-col gap-2 text-secondary">
-          <a class="link-underline" href="/">Home</a>
-          <a class="link-underline" href="/about">Sobre Nosotros</a>
-          <a class="link-underline" href="/">Reservas</a>
-          <a class="link-underline" href="/">Membresias</a>
-          <a class="link-underline" href="/">Boutique</a>
+          <a class="link-underline" href={homeURL}>Home</a>
+          <a class="link-underline" href={aboutURL}>{t("footer.aboutus")}</a>
+          <a class="link-underline" href={scheduleURL}
+            >{t("footer.schedules")}</a
+          >
+          <a class="link-underline" href={eventsURL}>{t("footer.events")}</a>
+
+          <a class="link-underline" href={membershipsURL}
+            >{t("footer.membership")}</a
+          >
+          <a class="link-underline" href={boutiqueURL}>Boutique</a>
         </div>
         <div class="flex flex-col gap-3 lg:hidden">
           <div class="flex gap-2 items-center">
@@ -112,7 +131,7 @@ import Form from "./helpers/Form.jsx";
           <span>7:00 AM - 7:30 PM</span>
         </div>
       </div>
-      <Form client:visible />
+      <Form client:visible language={language} />
     </div>
 
     <Logo class="md:block hidden px-8 pb-10 w-full" />

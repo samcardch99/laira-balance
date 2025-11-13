@@ -15,8 +15,13 @@ export default defineConfig({
     useCdn: true, // for static builds
   })],
   i18n: {
+
     locales: ["es", "en"],
     defaultLocale: "es",
+    routing: {
+      prefixDefaultLocale: true
+    },
+
   },
 
 

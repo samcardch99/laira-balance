@@ -1,17 +1,21 @@
 ---
-import Logo from "../assets/footer/logo.svg";
-import Phone from "../assets/icons/phone.svg";
-import Mail from "../assets/icons/mail.svg";
-import Location from "../assets/icons/location.svg";
-import Instagram from "../assets/icons/instagram.svg";
-import Clock from "../assets/icons/clock.svg";
-import Form from "../components/helpers/Form.jsx";
-import Logo_sm from "../assets/footer/logo_sm.svg";
-import MapPicture from "../assets/contact/map.jpg";
-import MapPicture_sm from "../assets/contact/map_sm.jpg";
+import Logo from "../../assets/footer/logo.svg";
+import Phone from "../../assets/icons/phone.svg";
+import Mail from "../../assets/icons/mail.svg";
+import Location from "../../assets/icons/location.svg";
+import Instagram from "../../assets/icons/instagram.svg";
+import Clock from "../../assets/icons/clock.svg";
+import Form from "../../components/helpers/Form.jsx";
+import Logo_sm from "../../assets/footer/logo_sm.svg";
+import MapPicture from "../../assets/contact/map.jpg";
+import MapPicture_sm from "../../assets/contact/map_sm.jpg";
 
-import HeaderLayout from "../layouts/HeaderLayout.astro";
+import HeaderLayout from "../../layouts/HeaderLayout.astro";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
 ---
 
 <HeaderLayout>
@@ -23,7 +27,7 @@ import { Image } from "astro:assets";
       <h1
         class="thin-screen:text-4xl text-5xl md:text-6xl lg:text-8xl italic font-bold"
       >
-        Contáctanos!
+        Contact Us!
       </h1>
       <div
         class="flex flex-col md-vertical:flex-col lg:flex-row justify-normal gap-7 lg:justify-start text-base"
@@ -119,7 +123,7 @@ import { Image } from "astro:assets";
           <healcode-widget
             data-type="prospects"
             data-widget-partner="object"
-            data-widget-id="bb61409a363"
+            data-widget-id="bb61407a363"
             data-widget-version="0"></healcode-widget>
         </div>
       </div>
@@ -132,7 +136,7 @@ import { Image } from "astro:assets";
     <div class="hidden w-full h-full justify-between md-custom:flex">
       <div class="w-1/3">
         <h2 class="md:text-2xl lg:text-3xl italic font-bold pt-8 lg:pt-20 px-8">
-          Localización
+          Location
         </h2>
         <Logo_sm
           class="absolute bottom-8 lg:bottom-10 left-8 lg:left-10 w-1/4"

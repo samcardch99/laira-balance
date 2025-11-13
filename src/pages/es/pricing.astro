@@ -1,24 +1,31 @@
 ---
-import PriceCard from "../components/PriceCard.astro";
-import Layout from "../layouts/Layout.astro";
+import PriceCard from "../../components/PriceCard.astro";
+import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import right_arrow from "../assets/prices/right_arrow.svg";
-import trial from "../assets/prices/trial.jpg";
-import memberships from "../assets/prices/membership.jpg";
-import class_pack from "../assets/prices/class_pack.jpg";
+import right_arrow from "../../assets/prices/right_arrow.svg";
+import trial from "../../assets/prices/trial.jpg";
+import memberships from "../../assets/prices/membership.jpg";
+import class_pack from "../../assets/prices/class_pack.jpg";
 import type { SanityDocument } from "@sanity/client";
 import { sanityClient } from "sanity:client";
-const CLASES_QUERY = `*[_type == "clases"]{
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
+const lang = Astro.currentLocale || "es";
+const scheduleURL = `${getRelativeLocaleUrl(lang, "schedule")}#schedule_widget`;
+const CLASES_QUERY = `*[_type == "clases" && language == 'es']{
   _id,
     title,
     "subtitle": subtitle[0].children[0].text,
     price,
 
 }`;
-const PAQUETES_QUERY = `*[_type == "paquetes"] | order(precio asc)
+const PAQUETES_QUERY = `*[_type == "paquetes" && language == 'es'] | order(precio asc)
 {
     nombre,
     precio,
+    expire,
     precio_unitario,
     link
 }`;
@@ -38,14 +45,14 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         class="flex flex-col items-center gap-1 md:gap-2 lg:gap-4 w-full md:w-1/2 px-10 text-secondary absolute md:relative bottom-4 self-center z-20"
       >
         <h2 class="italic font-bold text-2xl md:text-3xl lg:text-5xl text-center ">
-          Unlimited Monthly Membership <br/>$230
+          Membresía mensual ilimitada <br/>$230
         </h2>
         <p class="text-xs md:text-sm text-center text-secondary/70">
-          Monthly Renew
+          Renovación mensual
         </p>
         <p class="text-base md:text-lg lg:text-xl text-center">
-          Includes access to locker, facial towel<br class="hidden lg:block" /> and
-          aromatherapy at the end.
+          Incluye acceso a casillero, toalla facial<br class="hidden lg:block" /> y
+          aromaterapia al final.
         </p>
 
         <a
@@ -53,7 +60,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
           href="https://clients.mindbodyonline.com/classic/ws?studioid=5749033&stype=41&sTG=30&prodId=100017"
           class="rounded-full light px-5 py-3 w-fit mt-4 md:text-lg lg:text-xl lg:!text-pinkCustom"
         >
-          Purchase
+            Comprar
         </a>
       </div>
        <Image
@@ -75,7 +82,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
       >
         <div class="flex w-full gap-4 -ml-4 md:ml-0">
           <h1 class="font-bold italic text-6xl lg:text-8xl text-primary">
-            Prices
+            Precios
           </h1>
           <Image
             src={right_arrow}
@@ -101,7 +108,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
                   title={price.title}
                   price={price.price}
                   subtitle={price.subtitle}
-                  href="/schedule#schedule_widget"
+                  href={scheduleURL}
                   class="w-full"
                 />
 
@@ -131,15 +138,15 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         class="flex flex-col items-center gap-1 md:gap-2 lg:gap-4 w-full md:w-1/2 px-10 text-secondary absolute md:relative bottom-4 self-center"
       >
         <h2 class="italic font-bold text-2xl md:text-3xl lg:text-5xl">
-          Trial Class: $35
+          Clase de prueba: $35
         </h2>
         <p class="text-xs md:text-sm text-center text-secondary/70">
-          Expires 30 days from purchase<br />
-          <span>(Only for new members)</span>
+          Expira 30 días después de la compra<br />
+          <span>(Solo para nuevos miembros)</span>
         </p>
         <p class="text-base md:text-lg lg:text-xl text-center">
-          Includes access to locker, facial towel<br class="hidden lg:block" /> and
-          aromatherapy at the end.
+          Incluye acceso a casillero, toalla facial<br class="hidden lg:block" /> y
+          aromaterapia al final.
         </p>
 
         <a
@@ -147,13 +154,13 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
           href="https://clients.mindbodyonline.com/classic/ws?studioid=5749033&stype=41&sTG=26&prodId=100008"
           class="rounded-full light px-5 py-3 w-fit mt-4 md:text-lg lg:text-xl lg:!text-pinkCustom"
         >
-          Purchase
+          Comprar
         </a>
       </div>
     </section>
     <section
       id="prices_class_pack"
-      class="w-full pt-32 relative flex flex-col md:min-h-[100dvh] md:items-start border border-t border-primary"
+      class="w-full pt-32 relative flex flex-col md:min-h-[100dvh] md:items-start  "
     >
       <div class="flex flex-col md:flex-row md:items-center w-full">
         <div
@@ -169,7 +176,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
                   {class_package.nombre}<br /><span class="before:content-['$']">{class_package.precio}</span>
                 </h2>
                 <p class="text-base italic lg:text-xl text-primary/90 before:content-['$']">
-                 {class_package.precio_unitario}<span> por clase</span>
+                 {class_package.precio_unitario}<span>{t('pricing.per-class')}</span>
                 </p>
               </div>
               <p class="text-sm lg:text-base text-primary/50 -mt-6">{class_package.expire}</p>
@@ -178,7 +185,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
               target="_blank"
               href={class_package.link}
               class="rounded-full h-fit self-center px-6 py-3 darkPink lg:text-lg"
-              >Purchase</a
+              >Comprar</a
             >
           </div>
           <div class="w-full h-px bg-primary"></div>
@@ -188,7 +195,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         
 <div class="flex flex-col md:w-1/2">
         <p class="italic text-darkPink/80 font-bold text-xl lg:text-lg">
-          Includes locker access, facial towel, and aromatherapy at the end.
+          Incluye acceso a casillero, toalla facial y aromaterapia al final.
         </p>
       </div>
         </div>

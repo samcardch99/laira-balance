@@ -5,10 +5,11 @@ import ReserveButton from "../components/helpers/ReserveButton.astro";
 import "../styles/global.css";
 import Menu from "../components/Menu.astro";
 import "lenis/dist/lenis.css";
+const lang = Astro.currentLocale || "es";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -34,8 +35,9 @@ import "lenis/dist/lenis.css";
     min-height: 100vh;
     width: 100vw;
     height: 100%;
-    font-family: "Warming", Inter, Roboto, "Helvetica Neue", "Arial Nova",
-      "Nimbus Sans", Arial, sans-serif;
+    font-family:
+      "Warming", Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
     height: 100%;
     overflow-x: hidden;
     @apply tracking-wide;

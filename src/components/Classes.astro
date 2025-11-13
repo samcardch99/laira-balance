@@ -2,6 +2,14 @@
 import { Image } from "astro:assets";
 import ClassesImage_sm from "../assets/classes-section/classes_sm.jpg";
 import ClassesImage from "../assets/classes-section/classes.jpg";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const lang = Astro.currentLocale || "es";
+const classesURL = getRelativeLocaleUrl(lang, "pricing");
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
 ---
 
 <section id="classes" class="min-h-screen w-full flex flex-col relative">
@@ -22,9 +30,11 @@ import ClassesImage from "../assets/classes-section/classes.jpg";
     class="z-0 h-screen w-full object-cover md:block hidden border-t border-b border-primary"
   />
   <div class="absolute bottom-16 right-10 flex flex-col gap-2 items-end">
-    <h2 class="text-6xl text-secondary font-bold">Clases</h2>
-    <a href="/pricing" class="rounded-full light text-sm px-4 py-2 w-fit"
-      >Ver Paquetes</a
+    <h2 class="text-6xl text-secondary font-bold">
+      {t("home.classes.heading")}
+    </h2>
+    <a href={classesURL} class="rounded-full light text-sm px-4 py-2 w-fit"
+      >{t("home.classes.button")}</a
     >
   </div>
 </section>

@@ -1,8 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import AboutImage from "../assets/about/about.jpg";
-import About_sm_Image from "../assets/about/about_sm.jpg";
 import Down_Arrow from "../assets/icons/down_arrow.svg";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
+
+const lang = Astro.currentLocale || "es";
+const aboutURL = getRelativeLocaleUrl(lang, "about");
 ---
 
 <section
@@ -29,18 +36,13 @@ import Down_Arrow from "../assets/icons/down_arrow.svg";
   />
   <div class="flex flex-col gap-10">
     <div class="prose lg:prose-xl prose-neutral">
-      <h2>Sobre Nosotros</h2>
+      <h2>{t("home.about.heading")}</h2>
       <p class="text-sm">
-        Laira Balance es un estudio boutique de Yoga, Pilates y Barre, creado
-        para ofrecer una experiencia integral de bienestar físico y mental en un
-        entorno chic, sereno y cuidadosamente diseñado. Cada clase está pensada
-        para equilibrar fuerza, flexibilidad y conciencia corporal, guiada por
-        instructores certificados que valoran la técnica y la conexión interior
+        {t("home.about.p1")}
       </p>
 
       <p class="text-sm">
-        Además, dentro del estudio encontrarás la boutique Laira Brand, una
-        línea exclusiva de ropa deportiva y accesorios que complementan tu
+        {t("home.about.p2")}
         práctica con estilo y comodidad.
       </p>
       <a
@@ -84,8 +86,9 @@ import Down_Arrow from "../assets/icons/down_arrow.svg";
       </a>
       <div class="w-full h-px bg-gray-700"></div>
     </div>
-    <a class="px-6 py-3 darkPink rounded-full w-fit no-underline" href="/about"
-      >Sobre Nosotros</a
+    <a
+      class="px-6 py-3 darkPink rounded-full w-fit no-underline"
+      href={aboutURL}>{t("home.about.button")}</a
     >
   </div>
 </section>

@@ -1,17 +1,40 @@
 [
   {
-    "title": "Hazte miembro",
-    "subtitle": "Disfruta beneficios y ofertas exclusivas.",
-    "button": "Ver Paquetes",
-    "footer": "Aprovecha descuentos y promociones especiales!",
+    "title": {
+      "es": "Hazte miembro",
+      "en": "Become a member"
+    },
+    "subtitle": {
+      "es": "Disfruta beneficios y ofertas exclusivas.",
+      "en": "Enjoy exclusive benefits and offers."
+    },
+    "button": {
+      "es": "Ver Paquetes",
+      "en": "View Packages"
+    },
+    "footer": {
+      "es": "Aprovecha descuentos y promociones especiales!",
+      "en": "Take advantage of special discounts and promotions!"
+    },
     "image": "1"
   },
   {
-    "title": "Visita nuestra\n boutique online",
-    "subtitle": "",
-    "button": "Compra ahora!",
-    "footer": "Colecciones y precios especiales para ti.",
+    "title": {
+      "es": "Visita nuestra\n boutique online",
+      "en": "Visit our\n online boutique"
+    },
+    "subtitle": {
+      "es": "",
+      "en": ""
+    },
+    "button": {
+      "es": "Compra ahora!",
+      "en": "Shop now!"
+    },
+    "footer": {
+      "es": "Colecciones y precios especiales para ti.",
+      "en": "Special collections and prices for you."
+    },
     "image": "2"
-
   }
 ]

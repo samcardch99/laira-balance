@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import collage from "../../assets/about-interior/collage.jpg";
+import collage_sm from "../../assets/about-interior/collage_sm.jpg";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const lang = Astro.currentLocale || "es";
+const contactURL = getRelativeLocaleUrl(lang, "contact");
+---
+
+<Layout>
+  <main>
+    <section
+      id="about_interior"
+      class="flex flex-col gap-12 w-full min-h-screen bg-pinkCustom"
+    >
+      <div class="prose prose-xl px-10 pt-32 text-secondary">
+        <h1
+          class="italic font-bold text-5xl thin-screen:text-3xl text-secondary"
+        >
+          Learn more about Laira Balance
+        </h1>
+        <p>
+          Laira Balance was born from a pause. From that moment when the body
+          asks for silence and the soul whispers that it's time to return to the
+          center. Its founder, Laura García, discovered in movement a way to
+          heal not only the body but also the mind. After years of living where
+          noise was constant, she understood that true luxury is not in having
+          more, but in feeling better.
+        </p>
+        <p>
+          Laira Balance was born from a pause. From that moment when the body
+          asks for silence and the soul whispers that it's time to return to the
+          center. Its founder, Laura García, discovered in movement a way to
+          heal not only the body but also the mind. After years of living where
+          noise was constant, she understood that true luxury is not in having
+          more, but in feeling better.
+        </p>
+
+        <p>
+          More than a studio, Laira Balance is a statement of intent: to live
+          with purpose, breathe with awareness, and find elegance in stillness.
+        </p>
+        <a
+          href={contactURL}
+          class="lightPink rounded-full px-6 py-4 no-underline">Contact Us</a
+        >
+      </div>
+
+      <Image
+        height={1920}
+        width={1080}
+        quality={100}
+        src={collage_sm}
+        alt="Collage describing the Laira Balance experience."
+        class="w-full object-cover md:hidden"
+      />
+      <Image
+        height={1920}
+        width={1080}
+        quality={100}
+        src={collage}
+        alt="Collage describing the Laira Balance experience."
+        class="w-full object-cover hidden md:block"
+      />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  p {
+    @apply text-base;
+  }
+</style>

@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
 const { title, subtitle, price, href, className } = Astro.props;
 ---
 
@@ -8,13 +12,13 @@ const { title, subtitle, price, href, className } = Astro.props;
   <div class="flex flex-col gap-2 text-primary">
     <h2 class="lg:text-2xl xl:text-3xl text-3xl font-bold italic">
       {title}<br class="md:hidden" />
-      <span class="text-darkPink before:content-['$'] md:before:content-['-$']"
-        >{price}</span
-      >
+      <span class="before:content-['$'] md:before:content-['-$']">{price}</span>
     </h2>
     <p class="lg:text-base md:white-space-pre-line">{subtitle}</p>
   </div>
-  <a href={href} class="darkPink px-7 py-3 rounded-full text-lg">Reserve</a>
+  <a href={href} class="darkPink px-7 py-3 rounded-full text-lg"
+    >{t("pricing.reserve")}</a
+  >
   <div class="md:hidden absolute -bottom-10 w-full bg-primary h-px"></div>
 </div>
 

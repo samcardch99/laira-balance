@@ -1,24 +1,37 @@
-
 [
-        {
-            "name": "Camila Reyes",
-            "opinion": "Asistí al evento de Laira Balance y fue una experiencia transformadora. El ambiente era cálido, armónico y lleno de energía positiva. Salí con una sensación profunda de bienestar y conexión conmigo misma."
-        },
-        {
-            "name": "Luis Fernández",
-            "opinion": "Participar en el evento de Laira Balance fue una experiencia única. Me ayudó a encontrar un equilibrio interno que no sabía que necesitaba. Lo recomiendo a todos."
-        },
-        {
-            "name": "Sofía Martínez",
-            "opinion": "El evento superó mis expectativas. La organización, las actividades y la energía del lugar fueron increíbles. Me siento renovada y en paz."
-        },
-        {
-            "name": "Carlos Gómez",
-            "opinion": "Laira Balance me permitió desconectarme del estrés diario y reconectarme conmigo mismo. Fue una experiencia enriquecedora que repetiría sin dudar."
-        },
-        {
-            "name": "Valeria López",
-            "opinion": "Nunca había asistido a algo similar. El evento de Laira Balance me ayudó a reflexionar y a encontrar claridad en mi vida. Fue maravilloso."
+    {
+        "name": "Camila Reyes",
+        "opinion": {
+            "es": "Asistí al evento de Laira Balance y fue una experiencia transformadora. El ambiente era cálido, armónico y lleno de energía positiva. Salí con una sensación profunda de bienestar y conexión conmigo misma.",
+            "en": "I attended the Laira Balance event, and it was a transformative experience. The atmosphere was warm, harmonious, and full of positive energy. I left with a deep sense of well-being and connection with myself."
         }
-    ]
-
+    },
+    {
+        "name": "Luis Fernández",
+        "opinion": {
+            "es": "Participar en el evento de Laira Balance fue una experiencia única. Me ayudó a encontrar un equilibrio interno que no sabía que necesitaba. Lo recomiendo a todos.",
+            "en": "Participating in the Laira Balance event was a unique experience. It helped me find an inner balance I didn't know I needed. I recommend it to everyone."
+        }
+    },
+    {
+        "name": "Sofía Martínez",
+        "opinion": {
+            "es": "El evento superó mis expectativas. La organización, las actividades y la energía del lugar fueron increíbles. Me siento renovada y en paz.",
+            "en": "The event exceeded my expectations. The organization, activities, and energy of the place were incredible. I feel renewed and at peace."
+        }
+    },
+    {
+        "name": "Carlos Gómez",
+        "opinion": {
+            "es": "Laira Balance me permitió desconectarme del estrés diario y reconectarme conmigo mismo. Fue una experiencia enriquecedora que repetiría sin dudar.",
+            "en": "Laira Balance allowed me to disconnect from daily stress and reconnect with myself. It was an enriching experience that I would repeat without hesitation."
+        }
+    },
+    {
+        "name": "Valeria López",
+        "opinion": {
+            "es": "Nunca había asistido a algo similar. El evento de Laira Balance me ayudó a reflexionar y a encontrar claridad en mi vida. Fue maravilloso.",
+            "en": "I had never attended anything like it. The Laira Balance event helped me reflect and find clarity in my life. It was wonderful."
+        }
+    }
+]

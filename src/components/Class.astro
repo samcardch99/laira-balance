@@ -1,5 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
 const {
   imageSrc,
   imageAlt,
@@ -36,7 +40,7 @@ const {
     <a
       href={classHref}
       class=`darkPink py-2 px-4 w-fit no-underline ${align === "left" ? "lg:self-end" : "self-start"} rounded-full  `
-      >Ver Más</a
+      >{t("home.classes.more")}</a
     >
   </div>
   <Image

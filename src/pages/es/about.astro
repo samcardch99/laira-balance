@@ -1,8 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
-import collage from "../assets/about-interior/collage.jpg";
-import collage_sm from "../assets/about-interior/collage_sm.jpg";
+import Layout from "../../layouts/Layout.astro";
+import collage from "../../assets/about-interior/collage.jpg";
+import collage_sm from "../../assets/about-interior/collage_sm.jpg";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const lang = Astro.currentLocale || "es";
+const contactURL = getRelativeLocaleUrl(lang, "contact");
 ---
 
 <Layout>
@@ -38,8 +42,9 @@ import collage_sm from "../assets/about-interior/collage_sm.jpg";
           vivir con propósito, respirar con conciencia y encontrar elegancia en
           la quietud.
         </p>
-        <a href="/contact" class="lightPink rounded-full px-6 py-4 no-underline"
-          >Contáctanos</a
+        <a
+          href={contactURL}
+          class="lightPink rounded-full px-6 py-4 no-underline">Contáctanos</a
         >
       </div>
 

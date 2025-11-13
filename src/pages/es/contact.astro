@@ -1,0 +1,161 @@
+---
+import Logo from "../../assets/footer/logo.svg";
+import Phone from "../../assets/icons/phone.svg";
+import Mail from "../../assets/icons/mail.svg";
+import Location from "../../assets/icons/location.svg";
+import Instagram from "../../assets/icons/instagram.svg";
+import Clock from "../../assets/icons/clock.svg";
+import Form from "../../components/helpers/Form.jsx";
+import Logo_sm from "../../assets/footer/logo_sm.svg";
+import MapPicture from "../../assets/contact/map.jpg";
+import MapPicture_sm from "../../assets/contact/map_sm.jpg";
+
+import HeaderLayout from "../../layouts/HeaderLayout.astro";
+import { Image } from "astro:assets";
+---
+
+<HeaderLayout>
+  <section
+    id="contact"
+    class="min-h-[90dvh] border-t-[0.5px] border-darkPink text-primary w-full px-8 lg:px-10 relative"
+  >
+    <div class="flex flex-col h-full gap-8 pt-32 pb-12">
+      <h1
+        class="thin-screen:text-4xl text-5xl md:text-6xl lg:text-8xl italic font-bold"
+      >
+        Contáctanos!
+      </h1>
+      <div
+        class="flex flex-col md-vertical:flex-col lg:flex-row justify-normal gap-7 lg:justify-start text-base"
+      >
+        <div class="flex flex-col gap-3 lg:hidden">
+          <div class="flex gap-2 items-center">
+            <Phone class="h-4 fill-primary" />
+            <a
+              class="link-underline"
+              href="tel:3054293283"
+              target="_blank"
+              rel="noopener noreferrer">305-429-3283</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Mail class="h-4" />
+            <a
+              class="link-underline"
+              href="mailto:info@lairabalance.com"
+              target="_blank"
+              rel="noopener noreferrer">info@lairabalance.com</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Location class="h-4" />
+            <a
+              class="link-underline"
+              href="https://maps.app.goo.gl/GboFq2hPMknt7N5G8"
+              target="_blank"
+              rel="noopener noreferrer">4314 NW 2nd Ave, Miami, FL33127</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Instagram class="h-4" />
+            <a
+              class="link-underline"
+              href="https://www.instagram.com/lairabalance/"
+              target="_blank"
+              rel="noopener noreferrer">@lairabalance</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Clock class="h-4" />
+            <span>7:00 AM - 7:30 PM</span>
+          </div>
+        </div>
+        <div class="flex-col gap-3 w-2/5 hidden lg:flex">
+          <div class="flex gap-2 items-center">
+            <Phone class="h-4" />
+            <a
+              class="link-underline"
+              href="tel:3054293283"
+              target="_blank"
+              rel="noopener noreferrer">305-429-3283</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Mail class="h-4" />
+            <a
+              class="link-underline"
+              href="mailto:info@lairabalance.com"
+              target="_blank"
+              rel="noopener noreferrer">info@lairabalance.com</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Location class="h-4" />
+            <a
+              class="link-underline"
+              href="https://maps.app.goo.gl/GboFq2hPMknt7N5G8"
+              target="_blank"
+              rel="noopener noreferrer">4314 NW 2nd Ave, Miami, FL33127</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Instagram class="h-4" />
+            <a
+              class="link-underline"
+              href="https://www.instagram.com/lairabalance/"
+              target="_blank"
+              rel="noopener noreferrer">@lairabalance</a
+            >
+          </div>
+          <div class="flex gap-2 items-center">
+            <Clock class="h-4" />
+            <span>7:00 AM - 7:30 PM</span>
+          </div>
+        </div>
+        <div class="mr-[5vw] md-custom:mr-[20vw] lg:mr-[12vw]">
+          <script
+            src="https://widgets.mindbodyonline.com/javascripts/healcode.js"
+            type="text/javascript"></script>
+          <healcode-widget
+            data-type="prospects"
+            data-widget-partner="object"
+            data-widget-id="bb61409a363"
+            data-widget-version="0"></healcode-widget>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    id="contact_map"
+    class="md-custom:bg-pinkCustom lg:h-[100dvh] w-full relative bg-secondary text-secondary overflow-hidden flex flex-col gap-4"
+  >
+    <div class="hidden w-full h-full justify-between md-custom:flex">
+      <div class="w-1/3">
+        <h2 class="md:text-2xl lg:text-3xl italic font-bold pt-8 lg:pt-20 px-8">
+          Localización
+        </h2>
+        <Logo_sm
+          class="absolute bottom-8 lg:bottom-10 left-8 lg:left-10 w-1/4"
+        />
+      </div>
+      <Image
+        src={MapPicture}
+        class="w-2/3 h-full object-cover"
+        alt="Location image of Laira Balance Local"
+      />}
+    </div>
+    <h2
+      class="md-custom:hidden text-primary px-8 py-4 font-bold italic text-2xl"
+    >
+      Localización
+    </h2>
+    <Image
+      height={1920}
+      width={1080}
+      quality={80}
+      src={MapPicture_sm}
+      class="h-full object-cover md-custom:hidden"
+      alt="map picture of Laira Balance local."
+    />
+  </section></HeaderLayout
+>

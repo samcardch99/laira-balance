@@ -11,17 +11,21 @@ import ballet from "../../assets/classes-section/ballet.jpg";
 import Events from "../../components/Events.astro";
 import Memberships from "../../components/Memberships.astro";
 import MembershipsData from "../../data/memberships-data/memberships.json";
-import Footer from "../../components/Footer.astro";
-import { Toaster } from "sonner";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const lang = Astro.currentLocale || "es";
 
 const images = [yoga, barre, ballet];
-const lang = "en";
 ---
 
 <Layout>
   <main>
     <Cover />
-    <About language="en" />
+    <About />
     <Classes />
     {
       classes.map((classItem, index) => (
@@ -29,10 +33,10 @@ const lang = "en";
           key={index}
           id={classItem.className}
           imageSrc={images[index]}
-          imageAlt={classItem.altImage.en}
+          imageAlt={classItem.altImage.es}
           className={classItem.className}
-          classText={classItem.classText.en}
-          classHref={classItem.classHref}
+          classText={classItem.classText.es}
+          classHref={getRelativeLocaleUrl(lang, classItem.classHref)}
           align={index % 2 === 0 ? "left" : "right"}
         />
       ))
@@ -43,10 +47,10 @@ const lang = "en";
         <Memberships
           id={`memberships_${index + 1}`}
           key={index}
-          title={membership.title.en}
-          subtitle={membership.subtitle.en}
-          button={membership.button.en}
-          footer={membership.footer.en}
+          title={membership.title.es}
+          subtitle={membership.subtitle.es}
+          button={membership.button.es}
+          footer={membership.footer.es}
           image={membership.image}
         />
       ))

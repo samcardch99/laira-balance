@@ -4,6 +4,13 @@ import EventImage_sm from "../assets/events-section/events_sm.jpg";
 import EventImage from "../assets/events-section/events.jpg";
 import testimonials from "../data/events-data/testimonials.json";
 import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const language = getLangFromUrl(Astro.url);
+const t = useTranslations(language);
+const lang = Astro.currentLocale || "es";
+const eventsURL = getRelativeLocaleUrl(lang, "events");
 ---
 
 <section id="events" class="relative w-full h-[100dvh] flex flex-col">
@@ -30,9 +37,11 @@ import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
 
   <!-- CONTENIDO SUPERIOR (Título y botón) -->
   <div class="absolute bottom-16 right-10 flex flex-col gap-2 items-end z-30">
-    <h2 class="text-5xl md:text-6xl text-secondary font-bold">Eventos</h2>
-    <a href="/events" class="rounded-full light text-sm px-4 py-2 w-fit"
-      >Ver Nuestro Eventos</a
+    <h2 class="text-5xl md:text-6xl text-secondary font-bold">
+      {t("home.events.heading")}
+    </h2>
+    <a href={eventsURL} class="rounded-full light text-sm px-4 py-2 w-fit"
+      >{t("home.events.button")}</a
     >
   </div>
 
@@ -55,7 +64,7 @@ import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
           <SwiperSlide class="flex flex-col justify-center items-start gap-2 text-secondary">
             <h3 class="text-2xl  font-bold">{testimonial.name}</h3>
             <p class="text-sm md:text-base italic leading-snug">
-              {testimonial.opinion}
+              {testimonial.opinion[language]}
             </p>
           </SwiperSlide>
         ))

@@ -4,33 +4,33 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 import { toast, Toaster } from "sonner";
-
-// ✅ 1. Memoizamos el schema para no recalcularlo en cada render
-function useFormSchema() {
-  return useMemo(
-    () =>
-      z.object({
-        username: z.string().min(2, "Escriba un nombre válido"),
-        email: z.string().email("Escriba un email válido"),
-        message: z
-          .string()
-          .min(10, "Escriba un mensaje de al menos 10 caracteres"),
-        terms: z.literal(true, {
-          errorMap: () => ({
-            message: "Debe aceptar los términos y condiciones",
-          }),
-        }),
-      }),
-    []
-  );
-}
+import { useTranslations } from "../../i18n/utils";
 
 export default function HomeFooter({
   className = "text-secondary",
   buttonClass = "lightPink",
+  language = "es",
 }) {
-  const formSchema = useFormSchema();
+  const t = useTranslations(language);
+  const formSchema = useFormSchema(t);
   const formRef = useRef(null);
+
+  function useFormSchema(t) {
+    return useMemo(
+      () =>
+        z.object({
+          username: z.string().min(2, t("form.name.error")),
+          email: z.string().email(t("form.email.error")),
+          message: z.string().min(10, t("form.message.error")),
+          terms: z.literal(true, {
+            errorMap: () => ({
+              message: t("form.terms.error"),
+            }),
+          }),
+        }),
+      []
+    );
+  }
 
   // ✅ 2. useForm inicializado 1 sola vez
   const {
@@ -58,41 +58,32 @@ export default function HomeFooter({
         formRef.current,
         { publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY }
       );
-      toast.success("Correcto", {
-        description: "Su mensaje ha sido enviado con éxito.",
+      toast.success(t("footer.form.success.title.success"), {
+        description: t("footer.form.success"),
       });
       reset();
     } catch {
-      toast.error(
-        "Su mensaje no pudo ser enviado. Inténtelo de nuevo más tarde."
-      );
+      toast.error(t("footer.form.success.title.fail"), {
+        description: t("footer.form.error"),
+      });
     }
   };
-  const t = (key) => {
-    const translations = {
-      "form.username": "Jhon Doe",
-      "form.email": "jhon@gmail.com",
-      "form.phone": "305 123 4567",
-      "form.message": "I have a question about...",
-      "form.terms": "Acepto los términos y condiciones",
-      "form.sending": "Enviando...",
-      "form.send": "Enviar",
-    };
-    return translations[key] || key;
-  };
+
   return (
     <div className="w-full mt-7 mb-7 lg:mt-0 lg:mb-0 lg:w-1/3 z-50 max-w-[30rem]">
       <Toaster client:idle />
 
-      <h2 className={`italic text-2xl font-bold ${className}  mb-4`}>
-        Envíanos tus preguntas <br /> y comentarios.
+      <h2
+        className={`italic text-2xl font-bold ${className} w-4/5 md:w-3/5 mb-4`}
+      >
+        {t("footer.form.title")}
       </h2>
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
         className={`space-y-2 flex flex-col items-start w-full  ${className}`}
       >
-        <label className="text-sm ">Nombre</label>
+        <label className="text-sm ">{t("footer.form.name")}</label>
         <input
           {...register("username")}
           placeholder={t("form.username")}
@@ -101,7 +92,7 @@ export default function HomeFooter({
         {errors.username && (
           <p className="text-sm text-red-900">{errors.username.message}</p>
         )}
-        <label className="text-sm ">Email</label>
+        <label className="text-sm ">{t("footer.form.email")}</label>
 
         <input
           {...register("email")}
@@ -114,7 +105,7 @@ export default function HomeFooter({
 
         {/* <input {...register("phone")} placeholder={t("form.phone")} />
       {errors.phone && <p>{errors.phone.message}</p>} */}
-        <label className="text-sm ">Mensaje</label>
+        <label className="text-sm ">{t("footer.form.message")}</label>
 
         <textarea
           {...register("message")}
@@ -144,7 +135,7 @@ export default function HomeFooter({
           disabled={isSubmitting}
           className={`rounded-xl ${buttonClass} px-3 py-2`}
         >
-          {isSubmitting ? t("form.sending") : t("form.send")}
+          {isSubmitting ? t("form.sending") : t("form.button")}
         </button>
       </form>
     </div>
