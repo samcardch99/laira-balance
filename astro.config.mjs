@@ -7,13 +7,15 @@ import lenis from "astro-lenis";
 
 import sanity from "@sanity/astro";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [lenis(), react(), tailwind(), sanity({
     projectId: "47mfywui",
     dataset: "production",
     useCdn: true, // for static builds
-  })],
+  }), sitemap()],
   i18n: {
 
     locales: ["es", "en"],
@@ -23,6 +25,6 @@ export default defineConfig({
     },
 
   },
-
+  site: "https://lairabalance.com",
 
 });
