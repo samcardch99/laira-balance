@@ -1,0 +1,82 @@
+---
+const { type = "LocalBusiness", data = {} } = Astro.props;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": type,
+    name: "Laira Balance Studio",
+    image: "https://lairabalance.com/og_logo2.jpg",
+    "@id": "https://lairabalance.com",
+    url: "https://lairabalance.com",
+    telephone: "305-429-3283",
+    email: "info@lairabalance.com",
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "4314 NW 2nd Ave",
+        addressLocality: "Miami",
+        addressRegion: "FL",
+        postalCode: "33127",
+        addressCountry: "US",
+    },
+    openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ],
+        opens: "07:00",
+        closes: "19:30",
+    },
+    sameAs: ["https://www.instagram.com/lairabalance/"],
+    ...data,
+};
+
+const siteNavigation = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: [
+        {
+            "@type": "SiteNavigationElement",
+            position: 1,
+            name: "About",
+            description:
+                "Descubre la historia, la filosofía y el propósito detrás de Laira Balance Studio. Un espacio diseñado para el equilibrio, la calma y la belleza. Vive con propósito y encuentra elegancia en la paz.",
+            url: "https://lairabalance.com/about",
+        },
+        {
+            "@type": "SiteNavigationElement",
+            position: 2,
+            name: "Contact",
+            description:
+                "Ponte en contacto con Laira Balance Studio. Estamos aquí para responder tus preguntas y ayudarte a encontrar el equilibrio y la calma que buscas.",
+            url: "https://lairabalance.com/contact",
+        },
+        {
+            "@type": "SiteNavigationElement",
+            position: 3,
+            name: "Pricing",
+            description:
+                "Explora las opciones de precios de Laira Balance Studio. Descubre nuestras membresías ilimitadas, paquetes de clases y clases de prueba diseñadas para adaptarse a tu estilo de vida y bienestar. Encuentra el equilibrio perfecto para ti.",
+            url: "https://lairabalance.com/pricing",
+        },
+        {
+            "@type": "SiteNavigationElement",
+            position: 4,
+            name: "Schedule",
+            description:
+                "Consulta el horario de clases en Laira Balance Studio. Reserva tu lugar en nuestras sesiones de yoga, barre y ballet diseñadas para tu bienestar y equilibrio. Encuentra el momento perfecto para tu práctica y vive con propósito.",
+            url: "https://lairabalance.com/schedule",
+        },
+    ],
+};
+---
+
+<script
+    type="application/ld+json"
+    set:html={JSON.stringify([schema, siteNavigation])}
+/>
