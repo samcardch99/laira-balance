@@ -1,6 +1,6 @@
 export const languages = {
-  en: 'English',
-  es: 'Español',
+    en: 'English',
+    es: 'Español',
 };
 
 export const defaultLang = 'es';
@@ -51,10 +51,10 @@ export const ui = {
         'form.email.error': 'Please enter a valid email',
         'form.message.error': 'The message must be at least 10 characters long',
         'form.terms.error': 'You must accept the terms and conditions',
-        'reserve_button': 'Book your first appointment !',
+        'reserve_button': 'Book your first class!',
         'schedule.center': 'Center',
-        'schedule.breathe':' Breathe',
-        'schedule.glow':' Glow',
+        'schedule.breathe': ' Breathe',
+        'schedule.glow': ' Glow',
         'schedule.book_your_class': 'book your class',
         'pricing.reserve': 'Reserve',
         'pricing.per-class': ' per class',
@@ -116,8 +116,8 @@ export const ui = {
         'form.terms.error': 'Debe aceptar los términos y condiciones',
         'reserve_button': 'Agenda tu primera cita !',
         'schedule.center': 'Relájate',
-        'schedule.breathe':' Respira',
-        'schedule.glow':' Brilla',
+        'schedule.breathe': ' Respira',
+        'schedule.glow': ' Brilla',
         'schedule.book_your_class': 'Reserva tu clase',
         'pricing.reserve': 'Reservar',
         'pricing.per-class': ' por clase',

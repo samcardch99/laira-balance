@@ -133,7 +133,7 @@ export default function HomeFooter({
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`rounded-xl ${buttonClass} px-3 py-2`}
+          className={`rounded-full ${buttonClass} px-3 py-2`}
         >
           {isSubmitting ? t("form.sending") : t("form.button")}
         </button>

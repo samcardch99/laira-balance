@@ -119,12 +119,14 @@ const urlES = getRelativeLocaleUrl("es", path);
       events_text: "darkPink",
       events_grid: "darkPink",
       events_interior: "darkPink",
+      about_interior: "light",
+      about_image: "light",
     };
 
     const colors_navbar = {
       hero: "secondary",
       about: "primary",
-      classes: "primary",
+      classes: "secondary",
       Yoga: "primary",
       Barre: "primary",
       Ballet: "primary",
@@ -138,7 +140,8 @@ const urlES = getRelativeLocaleUrl("es", path);
       prices_class_pack: "primary",
       contact: "primary",
       contact_map: "primary",
-      about_interior: "primary",
+      about_interior: "secondary",
+      about_image: "secondary",
       schedule_section: "secondary",
       schedule_widget: "primary",
       events_text: "primary",
@@ -151,19 +154,19 @@ const urlES = getRelativeLocaleUrl("es", path);
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            // console.log(entry.target.id + "___sSasasa");
+            console.log(entry.target.id + "___sSasasa");
             header.classList.replace(
               colors_navbar[id] === "primary" ? "secondary" : "primary",
-              colors_navbar[id] === "primary" ? "primary" : "secondary"
+              colors_navbar[id] === "primary" ? "primary" : "secondary",
             );
             reserveButton.classList.replace(
               colors_reserveButton[id] === "darkPink" ? "light" : "darkPink",
-              colors_reserveButton[id] === "darkPink" ? "darkPink" : "light"
+              colors_reserveButton[id] === "darkPink" ? "darkPink" : "light",
             );
           }
         });
       },
-      { threshold: 0.75 }
+      { threshold: 0.75 },
     );
 
     sections.forEach((section) => observer.observe(section));
