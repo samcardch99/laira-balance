@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/logo.svg"><meta name="generator" content="Astro v5.14.7"><title> Contáctanos - Laira Balance</title><link rel="canonical" href="https://lairabalance.com/es/contact/"><meta name="description" content="Ponte en contacto con Laira Balance Studio. Estamos aquí para responder tus preguntas y ayudarte a encontrar el equilibrio y la calma que buscas."><meta name="robots" content="index, follow"><meta property="og:title" content="Laira Balance Studio — Bienestar, Yoga y Pilates"><meta property="og:type" content="website"><meta property="og:image" content="/og_logo2.jpg"><meta property="og:url" content="https://lairabalance.com/es/contact/"><meta property="og:description" content="Estudio boutique de yoga, pilates y bienestar. Conecta cuerpo y mente en un entorno chic y sereno."><meta property="og:image:url" content="/og_logo2.jpg"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Laira Balance Studio Open Graph Image"><meta property="article:published_time" content="2025-11-20T19:33:06.907Z"><meta property="article:author" content="Borsoga Studio"><meta name="twitter:image" content="/og_logo2.jpg"><meta name="twitter:title" content="Laira Balance Studio — Bienestar, Yoga y Pilates"><meta name="twitter:description" content="Estudio boutique de yoga, pilates y bienestar. Conecta cuerpo y mente en un entorno chic y sereno."><link rel="stylesheet" href="/_astro/about.BdPjNiho.css">
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/logo.svg"><meta name="generator" content="Astro v5.14.7"><title> Contáctanos - Laira Balance</title><link rel="canonical" href="https://lairabalance.com/es/contact/"><meta name="description" content="Ponte en contacto con Laira Balance Studio. Estamos aquí para responder tus preguntas y ayudarte a encontrar el equilibrio y la calma que buscas."><meta name="robots" content="index, follow"><meta property="og:title" content="Laira Balance Studio — Bienestar, Yoga y Pilates"><meta property="og:type" content="website"><meta property="og:image" content="/og_logo2.jpg"><meta property="og:url" content="https://lairabalance.com/es/contact/"><meta property="og:description" content="Estudio boutique de yoga, pilates y bienestar. Conecta cuerpo y mente en un entorno chic y sereno."><meta property="og:image:url" content="/og_logo2.jpg"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Laira Balance Studio Open Graph Image"><meta property="article:published_time" content="2025-11-25T13:27:50.529Z"><meta property="article:author" content="Borsoga Studio"><meta name="twitter:image" content="/og_logo2.jpg"><meta name="twitter:title" content="Laira Balance Studio — Bienestar, Yoga y Pilates"><meta name="twitter:description" content="Estudio boutique de yoga, pilates y bienestar. Conecta cuerpo y mente en un entorno chic y sereno."><link rel="stylesheet" href="/_astro/about.CAbMAMLe.css">
 <link rel="stylesheet" href="/_astro/contact.DtQv1M-e.css"><script type="module" src="/_astro/page.Bm_TcXXS.js"></script>
 <script>
             const style = document.createElement('style');
@@ -145,12 +145,14 @@ Menu
       events_text: "darkPink",
       events_grid: "darkPink",
       events_interior: "darkPink",
+      about_interior: "light",
+      about_image: "light",
     };
 
     const colors_navbar = {
       hero: "secondary",
       about: "primary",
-      classes: "primary",
+      classes: "secondary",
       Yoga: "primary",
       Barre: "primary",
       Ballet: "primary",
@@ -164,7 +166,8 @@ Menu
       prices_class_pack: "primary",
       contact: "primary",
       contact_map: "primary",
-      about_interior: "primary",
+      about_interior: "secondary",
+      about_image: "secondary",
       schedule_section: "secondary",
       schedule_widget: "primary",
       events_text: "primary",
@@ -177,19 +180,19 @@ Menu
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            // console.log(entry.target.id + "___sSasasa");
+            console.log(entry.target.id + "___sSasasa");
             header.classList.replace(
               colors_navbar[id] === "primary" ? "secondary" : "primary",
-              colors_navbar[id] === "primary" ? "primary" : "secondary"
+              colors_navbar[id] === "primary" ? "primary" : "secondary",
             );
             reserveButton.classList.replace(
               colors_reserveButton[id] === "darkPink" ? "light" : "darkPink",
-              colors_reserveButton[id] === "darkPink" ? "darkPink" : "light"
+              colors_reserveButton[id] === "darkPink" ? "darkPink" : "light",
             );
           }
         });
       },
-      { threshold: 0.75 }
+      { threshold: 0.75 },
     );
 
     sections.forEach((section) => observer.observe(section));
