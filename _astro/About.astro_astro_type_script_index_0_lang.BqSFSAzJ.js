@@ -1,0 +1,1 @@
+import{g as a,S as o}from"./ScrollTrigger.lnFyu4_T.js";document.addEventListener("DOMContentLoaded",()=>{a.registerPlugin(o),document.querySelectorAll("[data-parallax-speed]").forEach(e=>{const t=e,r=parseFloat(t.dataset.parallaxSpeed||"0");isNaN(r)||a.to(t,{y:"-6rem",ease:"none",scrollTrigger:{trigger:e,start:"top bottom",end:"bottom top",scrub:!0}})})});
