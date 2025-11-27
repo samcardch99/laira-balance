@@ -48,7 +48,7 @@ export default function EventsIsland() {
         posts.map((post) => (
           <div
             key={post._id}
-            className="flex flex-col gap-4 p-3 max-w-[550px] border border-primary/50 text-primary hover:bg-pinkCustom/50 transition-colors duration-200"
+            className="z-20 relative bg-secondary flex flex-col gap-4 p-3 max-w-[550px] border border-primary/50 text-primary hover:scale-105 transition-all duration-300 shadow-xl hover:bg-[#e6dfdc]"
           >
             <img
               src={post.imageUrl}

@@ -30,10 +30,12 @@ const t = useTranslations(language);
     class="z-0 h-screen w-full object-cover md:block hidden border-t border-b border-primary"
   />
   <div class="absolute bottom-16 right-10 flex flex-col gap-2 items-end">
-    <h2 class="text-6xl text-secondary font-bold">
+    <h2 class="text-6xl text-secondary font-bold fade-up-item">
       {t("home.classes.heading")}
     </h2>
-    <a href={classesURL} class="rounded-full light text-sm px-4 py-2 w-fit"
+    <a
+      href={classesURL}
+      class="rounded-full light text-sm px-4 py-2 w-fit fade-up-item"
       >{t("home.classes.button")}</a
     >
   </div>

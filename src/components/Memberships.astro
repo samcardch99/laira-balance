@@ -11,7 +11,7 @@ const { title, subtitle, button, footer, image, id } = Astro.props;
 
 <section
   id={id}
-  class="md-custom:min-h-screen md-custom-lg:min-h-fit w-full relative"
+  class="md-custom:min-h-screen md-custom-lg:min-h-fit w-full sticky top-0 bg-secondary"
 >
   <div class="w-full h-[2px] bg-black z-50"></div>
 
@@ -23,18 +23,19 @@ const { title, subtitle, button, footer, image, id } = Astro.props;
         class="flex flex-col gap-2 lg:gap-4 justify-center mt-12 lg:mt-0 items-center"
       >
         <h2
-          class="text-2xl lg:text-5xl font-bold white-space-pre-line text-center"
+          class="text-2xl lg:text-5xl font-bold white-space-pre-line text-center fade-up-item"
         >
           {title}
         </h2>
-        <h3 class="text-sm lg:text-xl font-bold">
+        <h3 class="text-sm lg:text-xl font-bold fade-up-item">
           {subtitle}
         </h3>
-        <a href={pricingURL} class="darkPink px-6 py-2 rounded-full w-fit"
-          >{button}</a
+        <a
+          href={pricingURL}
+          class="darkPink px-6 py-2 rounded-full w-fit fade-up-item">{button}</a
         >
       </div>
-      <h3 class="italic text-sm lg:text-xl mt-16 text-center">
+      <h3 class="italic text-sm lg:text-xl mt-16 text-center fade-up-item">
         {footer}
       </h3>
     </div>

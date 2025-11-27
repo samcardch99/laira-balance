@@ -24,7 +24,7 @@ const images = [yoga, barre, ballet];
   title="Home"
   description="Discover Laira Balance Studio, a space dedicated to wellness and elegance. Explore our yoga, barre, and ballet classes, exclusive events, and memberships designed for your physical and mental balance. Live with purpose and find calm in every movement."
 >
-  <main>
+  <main class="!overflow-visible">
     <Cover />
     <About language="en" />
     <Classes />
@@ -33,12 +33,13 @@ const images = [yoga, barre, ballet];
         <Class
           key={index}
           id={classItem.className}
+          className={classItem.class}
           imageSrc={images[index]}
-          imageAlt={classItem.altImage.en}
-          className={classItem.className}
-          classText={classItem.classText.en}
+          imageAlt={classItem.altImage.es}
+          Name={classItem.className}
+          classText={classItem.classText.es}
           classHref={getRelativeLocaleUrl(lang, classItem.classHref)}
-          align={index % 2 === 0 ? "left" : "right"}
+          align="left"
         />
       ))
     }

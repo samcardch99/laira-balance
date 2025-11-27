@@ -19,11 +19,11 @@ const contactURL = getRelativeLocaleUrl(lang, "contact");
       <section id="about_interior" class="w-full h-fit relative">
         <div class="prose prose-xl px-10 text-secondary">
           <h1
-            class="italic font-bold text-5xl thin-screen:text-3xl text-secondary"
+            class="italic font-bold text-5xl thin-screen:text-3xl text-secondary fade-up-item !duration-[600ms] delay-200"
           >
             Learn more about Laira Balance
           </h1>
-          <p>
+          <p class="fade-up-item !duration-[600ms] delay-[400ms]">
             Laira Balance was born from a pause. From that instant when the body
             asks for silence and the soul whispers that it is time to return to
             your center. Its founder, Laura García, discovered in movement a way
@@ -31,7 +31,7 @@ const contactURL = getRelativeLocaleUrl(lang, "contact");
             where noise and hurry were constant, she understood that true luxury
             is not about having more, it is about feeling better.
           </p>
-          <p>
+          <p class="fade-up-item !duration-[600ms] delay-[600ms]">
             That is how Laira Balance came to life, a space created from calm
             and designed for those who seek balance without giving up beauty.
             Every texture, every tone and every detail reflects the same
@@ -40,18 +40,19 @@ const contactURL = getRelativeLocaleUrl(lang, "contact");
             session is an invitation to come back to yourself.
           </p>
 
-          <p>
+          <p class="fade-up-item !duration-[600ms] delay-[800ms]">
             More than a studio, Laira Balance is a declaration of intention, to
-            live with purpose, breathe with awareness and find
-            elegance in stillness.
+            live with purpose, breathe with awareness and find elegance in
+            stillness.
           </p>
           <a
             href={contactURL}
-            class="lightPink rounded-full px-6 py-4 no-underline">Contact Us</a
+            class="fade-up-item !duration-[600ms] delay-[1000ms] lightPink rounded-full px-6 py-4 no-underline"
+            >Contact Us</a
           >
         </div>
         <Logo
-          class="absolute h-full top-0 right-10 translate-x-1/2 opacity-50"
+          class="absolute h-full top-0 right-10 translate-x-1/2 opacity-50 text-secondary"
         />
       </section>
       <section id="about-image">

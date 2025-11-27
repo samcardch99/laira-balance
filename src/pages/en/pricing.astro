@@ -46,13 +46,13 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
       <div
         class="flex flex-col items-center gap-1 md:gap-2 lg:gap-4 w-full md:w-1/2 px-10 text-secondary absolute md:relative bottom-4 self-center z-20"
       >
-        <h2 class="italic font-bold text-2xl md:text-3xl lg:text-5xl text-center ">
+        <h2 class="italic font-bold text-2xl md:text-3xl lg:text-5xl text-center fade-up-item">
           Unlimited Monthly Membership <br/>$230
         </h2>
-        <p class="text-xs md:text-sm text-center text-secondary/70">
+        <p class="text-xs md:text-sm text-center text-secondary/70 fade-up-item">
           Monthly Renew
         </p>
-        <p class="text-base md:text-lg lg:text-xl text-center">
+        <p class="text-base md:text-lg lg:text-xl text-center fade-up-item">
           Includes access to locker, facial towel<br class="hidden lg:block" /> and
           aromatherapy at the end.
         </p>
@@ -60,7 +60,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         <a
           target="_blank"
           href="https://clients.mindbodyonline.com/classic/ws?studioid=5749033&stype=41&sTG=30&prodId=100017"
-          class="rounded-full light px-5 py-3 w-fit mt-4 md:text-lg lg:text-xl lg:!text-pinkCustom"
+          class="rounded-full light px-5 py-3 w-fit mt-4 md:text-lg lg:text-xl lg:!text-pinkCustom fade-up-item"
         >
           Purchase
         </a>
@@ -83,7 +83,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         class="px-10 md:px-16 xl:px-32 pt-10 pb-20 md:py-0 md:my-32 grid justify-center place-items-center grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-20 md:gap-16"
       >
         <div class="flex w-full gap-4 -ml-4 md:ml-0">
-          <h1 class="font-bold italic text-6xl lg:text-8xl text-primary">
+          <h1 class="font-bold italic text-6xl lg:text-8xl text-primary fade-up-item">
             Prices
           </h1>
           <Image
@@ -94,7 +94,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         </div>
         {
           (!prices || prices.length === 0) && (
-            <p class="text-center text-primary">
+            <p class="text-center text-primary fade-up-item">
               No hay clases disponibles en este momento.
             </p>
           )
@@ -111,7 +111,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
                   price={price.price}
                   subtitle={price.subtitle}
                   href={scheduleURL}
-                  class="w-full"
+                  class="w-full fade-up-item"
                 />
 
                 {index % 2 === 0 && index < prices.length - 1 && (
@@ -139,14 +139,14 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
       <div
         class="flex flex-col items-center gap-1 md:gap-2 lg:gap-4 w-full md:w-1/2 px-10 text-secondary absolute md:relative bottom-4 self-center"
       >
-        <h2 class="italic font-bold text-2xl md:text-3xl lg:text-5xl">
+        <h2 class="italic font-bold text-2xl md:text-3xl lg:text-5xl fade-up-item">
           Trial Class: $35
         </h2>
-        <p class="text-xs md:text-sm text-center text-secondary/70">
+        <p class="text-xs md:text-sm text-center text-secondary/70 fade-up-item">
           Expires 30 days from purchase<br />
           <span>(Only for new members)</span>
         </p>
-        <p class="text-base md:text-lg lg:text-xl text-center">
+        <p class="text-base md:text-lg lg:text-xl text-center fade-up-item">
           Includes access to locker, facial towel<br class="hidden lg:block" /> and
           aromatherapy at the end.
         </p>
@@ -154,7 +154,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         <a
           target="_blank"
           href="https://clients.mindbodyonline.com/classic/ws?studioid=5749033&stype=41&sTG=26&prodId=100008"
-          class="rounded-full light px-5 py-3 w-fit mt-4 md:text-lg lg:text-xl lg:!text-pinkCustom"
+          class="rounded-full light px-5 py-3 w-fit mt-4 md:text-lg lg:text-xl lg:!text-pinkCustom fade-up-item"
         >
           Purchase
         </a>
@@ -174,19 +174,19 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
                         <div class="flex w-full justify-between">
             <div class="flex flex-col gap-6 w-3/5">
               <div class="flex flex-col">
-                <h2 class="italic font-bold text-3xl lg:text-4xl text-primary">
+                <h2 class="italic font-bold text-3xl lg:text-4xl text-primary fade-up-item">
                   {class_package.nombre}<br /><span class="before:content-['$']">{class_package.precio}</span>
                 </h2>
-                <p class="text-base italic lg:text-xl text-primary/90 before:content-['$']">
+                <p class="text-base italic lg:text-xl text-primary/90 before:content-['$'] fade-up-item">
                  {class_package.precio_unitario}<span>{t('pricing.per-class')}</span>
                 </p>
               </div>
-              <p class="text-sm lg:text-base text-primary/50 -mt-6">{class_package.expire}</p>
+              <p class="text-sm lg:text-base text-primary/50 -mt-6 fade-up-item">{class_package.expire}</p>
             </div>
             <a
               target="_blank"
               href={class_package.link}
-              class="rounded-full h-fit self-center px-6 py-3 darkPink lg:text-lg"
+              class="rounded-full h-fit self-center px-6 py-3 darkPink lg:text-lg fade-up-item"
               >Purchase</a
             >
           </div>
@@ -196,7 +196,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
         }
         
 <div class="flex flex-col md:w-1/2">
-        <p class="italic text-primary font-bold text-xl lg:text-lg">
+        <p class="italic text-primary font-bold text-xl lg:text-lg fade-up-item">
           Includes locker access, facial towel, and aromatherapy at the end.
         </p>
       </div>

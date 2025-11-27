@@ -14,9 +14,6 @@ const eventsURL = getRelativeLocaleUrl(lang, "events");
 ---
 
 <section id="events" class="relative w-full h-[100dvh] flex flex-col">
-  <!-- Línea superior -->
-  <div class="w-full h-[3px] bg-primary"></div>
-
   <!-- Fondo -->
   <Image
     height={1920}
@@ -37,10 +34,12 @@ const eventsURL = getRelativeLocaleUrl(lang, "events");
 
   <!-- CONTENIDO SUPERIOR (Título y botón) -->
   <div class="absolute bottom-16 right-10 flex flex-col gap-2 items-end z-30">
-    <h2 class="text-5xl md:text-6xl text-secondary font-bold">
+    <h2 class="text-5xl md:text-6xl text-secondary font-bold fade-up-item">
       {t("home.events.heading")}
     </h2>
-    <a href={eventsURL} class="rounded-full light text-sm px-4 py-2 w-fit"
+    <a
+      href={eventsURL}
+      class="rounded-full light text-sm px-4 py-2 w-fit fade-up-item"
       >{t("home.events.button")}</a
     >
   </div>

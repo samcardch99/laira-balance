@@ -125,7 +125,7 @@ body {
 }
 
 .light {
-  @apply bg-secondary text-primary transition-colors;
+  @apply bg-secondary text-primary !transition-all !delay-0;
 }
 
 .lightPink {
@@ -149,7 +149,7 @@ body {
 }
 
 .link-underline {
-  @apply relative  w-fit;
+  @apply relative w-fit;
 }
 
 .link-underline::after {
@@ -162,12 +162,12 @@ body {
 }
 
 .about-links {
-  @apply hover:bg-pinkCustom/10 transition-colors duration-200 px-1;
+  @apply hover:text-darkPink transition-colors duration-200 px-1;
 }
 
-a:hover {
+/* a:hover {
   @apply text-darkPink;
-}
+} */
 
 header.primary a:hover {
   @apply text-darkPink;

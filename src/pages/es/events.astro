@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Down_arrow_circle from "../../assets/icons/down_arrow_circle.svg";
+import Logo from "../../assets/logo/logo.svg";
 
 import EventsIsland from "../../components/helpers/EventsIsland";
 ---
@@ -15,28 +16,31 @@ import EventsIsland from "../../components/helpers/EventsIsland";
   >
     <section id="events_text" class="prose prose-xl text-primary pt-32">
       <h1
-        class="italic font-bold text-5xl lg:text-6xl thin-screen:text-3xl text-primary"
+        class="italic font-bold text-5xl lg:text-6xl thin-screen:text-3xl text-primary fade-up-item !duration-[600ms]"
       >
         Eventos
       </h1>
-      <p>
+      <p class="fade-up-item !duration-[600ms]">
         En Laira Balance, cada evento es una extensión de nuestra filosofía:
         crear espacios donde el bienestar se viva con propósito y elegancia.
       </p>
-      <p>
+      <p class="fade-up-item !duration-[600ms]">
         Diseñamos experiencias sensoriales que combinan movimiento, conexión y
         calma desde sesiones especiales de yoga al atardecer hasta encuentros
         dedicados al arte del descanso y la nutrición consciente.
       </p>
-      <p>
+      <p class="fade-up-item !duration-[600ms]">
         Más que actividades, son rituales compartidos. Momentos para reconectar
         con uno mismo y con una comunidad que celebra el balance como estilo de
         vida.
       </p>
     </section>
+    <Logo
+      class="fixed h-full top-0 right-10 translate-x-1/2 opacity-50 text-primary/50 py-20 z-10"
+    />
     <a
       href="#events_grid"
-      class="hover:bg-pinkCustom/50 w-10 rounded-full transition-all duration-200 cursor-pointer group"
+      class="fade-up-item !duration-[600ms] hover:bg-pinkCustom/50 w-10 rounded-full transition-all cursor-pointer group"
     >
       <Down_arrow_circle
         class="w-8 md:w-10 lg:w-10 group-hover:scale-105 transition-transform duration-200 text-primary"

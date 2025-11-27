@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Down_arrow_circle from "../../assets/icons/down_arrow_circle.svg";
+import Logo from "../../assets/logo/logo.svg";
 
 import EventsIsland from "../../components/helpers/EventsIsland";
 ---
@@ -13,29 +14,35 @@ import EventsIsland from "../../components/helpers/EventsIsland";
     id="events_interior"
     class="flex flex-col gap-12 w-full min-h-screen bg-secondary px-8 md:px-10 lg:px-20 pb-10"
   >
-    <section id="events_text" class="prose prose-xl tesxt-primary pt-32">
+    <section
+      id="events_text"
+      class="prose prose-xl text-primary pt-32 h-fit w-full relative"
+    >
       <h1
-        class="italic font-bold text-5xl lg:text-6xl thin-screen:text-3xl text-primary"
+        class="italic font-bold text-5xl lg:text-6xl thin-screen:text-3xl text-primary fade-up-item !duration-[600ms]"
       >
         Events
       </h1>
-      <p>
+      <p class="fade-up-item !duration-[600ms]">
         At Laira Balance, each event is an extension of our philosophy: creating
         spaces where wellness is experienced with purpose and elegance.
       </p>
-      <p>
+      <p class="fade-up-item !duration-[600ms]">
         We design sensory experiences that combine movement, connection, and
         calm, from special sunset yoga sessions to gatherings dedicated to the
         art of rest and mindful nutrition.
       </p>
-      <p>
+      <p class="fade-up-item !duration-[600ms]">
         More than activities, they are shared rituals. Moments to reconnect with
         oneself and with a community that celebrates balance as a lifestyle.
       </p>
     </section>
+    <Logo
+      class="fixed h-full top-0 right-10 translate-x-1/2 opacity-50 text-primary/40 py-20 z-10"
+    />
     <a
       href="#events_grid"
-      class="hover:bg-pinkCustom/50 w-10 rounded-full transition-all duration-200 cursor-pointer group"
+      class="fade-up-item !duration-[600ms] hover:bg-pinkCustom/50 w-10 rounded-full transition-all cursor-pointer group"
     >
       <Down_arrow_circle
         class="w-8 md:w-10 lg:w-10 group-hover:scale-105 transition-transform duration-200 text-primary"

@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import AboutImage from "../assets/about/about.jpg";
+import AboutImage_sm from "../assets/about/about_sm.jpg";
+
 import Down_Arrow from "../assets/icons/down_arrow.svg";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
@@ -14,81 +16,133 @@ const aboutURL = getRelativeLocaleUrl(lang, "about");
 
 <section
   id="about"
-  class="min-h-screen md-vertical:min-h-0 md-vertical:py-20 w-full max-w-screen flex flex-col md:flex-row justify-center md:justify-normal md:items-end pb-10 md:pr-20 relative gap-10 pt-20 px-8 md:px-0"
+  class="min-h-screen md-vertical:min-h-0 md-vertical:py-20 w-full max-w-screen flex flex-col md:flex-row justify-center md:justify-normal md:items-end pb-10 md:pr-20 gap-10 pt-20 px-8 md:px-0"
 >
-  <Image
-    src={AboutImage}
-    alt="About Us"
-    quality={80}
-    height={1920}
-    width={1080}
-    quality={80}
-    class="object-contain self-center lg:self-auto lg:max-h-[80vh] max-w-fit lg:min-w-1/2 md:w-1/2 md:aspect-square w-fit hidden md:block"
-  />
-  <Image
-    src={AboutImage}
-    alt="About Us mobile"
-    quality={80}
-    height={1920}
-    width={1080}
-    quality={80}
-    class="object-cover w-full max-w-96 md:hidden"
-  />
+  <div
+    class="lg:max-h-[80vh] max-w-fit lg:min-w-1/2 md:w-1/2 md:aspect-square w-fit hidden md:block overflow-hidden"
+  >
+    <Image
+      src={AboutImage}
+      alt="About Us"
+      quality={80}
+      height={1920}
+      width={1080}
+      quality={80}
+      data-parallax-speed="0.15"
+      style="transform: translateY(var(--parallax-translate-y, 0px));"
+      class="object-cover self-center lg:self-auto max-w-fit lg:min-w-full md:w-full w-fit hidden md:block"
+    />
+  </div>
+  <div class="w-full md:hidden max-w-96 overflow-hidden aspect-square">
+    <Image
+      src={AboutImage}
+      alt="About Us mobile"
+      quality={80}
+      height={1920}
+      width={1080}
+      quality={80}
+      data-parallax-speed="0.1"
+      style="transform: translateY(var(--parallax-translate-y, 0px));"
+      class="object-cover w-full md:hidden"
+    />
+  </div>
   <div class="flex flex-col gap-10">
     <div class="prose lg:prose-xl prose-neutral">
-      <h2>{t("home.about.heading")}</h2>
-      <p class="text-sm">
+      <h2 class="fade-up-item">{t("home.about.heading")}</h2>
+      <p class="text-sm fade-up-item">
         {t("home.about.p1")}
       </p>
 
-      <p class="text-sm">
+      <p class="text-sm fade-up-item">
         {t("home.about.p2")}
-        práctica con estilo y comodidad.
       </p>
       <a
         href="#Yoga"
-        class="flex group justify-between no-underline about-links"
+        class="flex group justify-between no-underline about-links fade-up-item relative"
       >
-        <span>Yoga</span>
+        <span
+          class="group-hover:translate-x-2 transition-transform duration-200"
+          >Yoga</span
+        >
         <Down_Arrow
           class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
         />
+        <div class="w-full h-px bg-gray-700 absolute bottom-0"></div>
       </a>
-      <div class="w-full h-px bg-gray-700"></div>
       <a
         href="#Barre"
-        class="flex group justify-between no-underline about-links"
+        class="flex group justify-between no-underline about-links fade-up-item relative"
       >
-        <span>Barre</span>
+        <span
+          class="group-hover:translate-x-2 transition-transform duration-200"
+          >Barre</span
+        >
         <Down_Arrow
           class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
         />
+        <div class="w-full h-px bg-gray-700 absolute bottom-0"></div>
       </a>
-      <div class="w-full h-px bg-gray-700"></div>
       <a
         href="#Ballet"
-        class="flex group justify-between no-underline about-links"
+        class="flex group justify-between no-underline about-links fade-up-item relative"
       >
-        <span>Ballet</span>
+        <span
+          class="group-hover:translate-x-2 transition-transform duration-200"
+          >Ballet</span
+        >
         <Down_Arrow
           class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
         />
+        <div class="w-full h-px bg-gray-700 absolute bottom-0"></div>
       </a>
-      <div class="w-full h-px bg-gray-700"></div>
       <a
         href="/about"
-        class="flex group justify-between no-underline about-links"
+        class="flex group justify-between no-underline about-links fade-up-item relative"
       >
-        <span>Boutique Laira Brand</span>
+        <span
+          class="group-hover:translate-x-2 transition-transform duration-200"
+          >Boutique Laira Brand</span
+        >
         <Down_Arrow
           class="h-4 w-4 self-center group-hover:-rotate-45 transition-transform"
         />
+        <div class="w-full h-px bg-gray-700 absolute bottom-0"></div>
       </a>
-      <div class="w-full h-px bg-gray-700"></div>
     </div>
+
     <a
       class="px-6 py-3 darkPink rounded-full w-fit no-underline"
       href={aboutURL}>{t("home.about.button")}</a
     >
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const parallaxElements = document.querySelectorAll("[data-parallax-speed]");
+
+    parallaxElements.forEach((el) => {
+      const element = el as HTMLElement;
+      const speed = parseFloat(element.dataset.parallaxSpeed || "0");
+      if (!isNaN(speed)) {
+        gsap.to(element, {
+          y: (index, target) => {
+            return -(window.innerHeight * speed * 1.3);
+          },
+          ease: "none",
+          scrollTrigger: {
+            trigger: el,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+    });
+  });
+</script>

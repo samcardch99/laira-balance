@@ -35,12 +35,13 @@ const images = [yoga, barre, ballet];
         <Class
           key={index}
           id={classItem.className}
+          className={classItem.class}
           imageSrc={images[index]}
           imageAlt={classItem.altImage.es}
-          className={classItem.className}
+          Name={classItem.className}
           classText={classItem.classText.es}
           classHref={getRelativeLocaleUrl(lang, classItem.classHref)}
-          align={index % 2 === 0 ? "left" : "right"}
+          align="left"
         />
       ))
     }

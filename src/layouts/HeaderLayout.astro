@@ -65,3 +65,44 @@ const seo = SEO_TEXT[language] || SEO_TEXT["es"];
     <slot />
   </body>
 </html>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const fadeUpItems = document.querySelectorAll(".fade-up-item");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Array.from(fadeUpItems).indexOf(entry.target);
+            entry.target.style.transitionDelay = `${index * 0.05}s`; // Progressive delay
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: "0px",
+        threshold: 0.1, // Trigger when 10% of the item is visible
+      },
+    );
+
+    fadeUpItems.forEach((item) => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+<style is:global>
+  .fade-up-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
+  }
+
+  .fade-up-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

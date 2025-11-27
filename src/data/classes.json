@@ -1,5 +1,4 @@
 [
-
     {
         "className": "Yoga",
         "classText": {
@@ -10,7 +9,9 @@
         "altImage": {
             "es": "Imagen de una clase de Yoga en Laira Balance",
             "en": "Image of a Yoga class at Laira Balance"
-        }
+        },
+        "class": "sticky top-0 h-[140vh]",
+        "height": "h-[150vh] md-vertical:h-auto"
     },
     {
         "className": "Barre",
@@ -22,7 +23,9 @@
         "altImage": {
             "es": "Imagen de una clase de Barre en Laira Balance",
             "en": "Image of a Barre class at Laira Balance"
-        }
+        },
+        "class": "sticky top-0 h-[140vh]",
+        "height": "h-[150vh] md-vertical:h-auto"
     },
     {
         "className": "Ballet",
@@ -34,6 +37,8 @@
         "altImage": {
             "es": "Imagen de una clase de Ballet en Laira Balance",
             "en": "Image of a Ballet class at Laira Balance"
-        }
+        },
+        "class": "sticky h-[100vh]",
+        "height": "h-[100vh] md-vertical:h-auto"
     }
 ]

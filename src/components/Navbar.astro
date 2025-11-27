@@ -28,9 +28,9 @@ const urlES = getRelativeLocaleUrl("es", path);
   class="primary transition-all w-full h-20 px-10 pt-4 pb-6 md:pb-4 md:pt-10 grid grid-cols-3 md:flex md:justify-between fixed z-[100] top-0 left-0 text-lg backdrop-blur-sm [mask-image:linear-gradient(to_bottom,black_90%,transparent_100%)]"
 >
   <div class="w-fit gap-2 flex justify-start items-center font-bold md:hidden">
-    <a href={urlEN} class={locale === "en" ? "text-gray-700" : ""}> EN </a>
+    <a href={urlEN} class=`lang ${locale === "en" ? "opacity-50" : ""}`> EN </a>
     <span class="font-thin">|</span>
-    <a href={urlES} class={locale === "es" ? "text-gray-700" : ""}> ES </a>
+    <a href={urlES} class=`lang ${locale === "es" ? "opacity-50" : ""}`> ES </a>
   </div>
   <a class="self-center col-start-2 justify-self-center h-12" href={homeURL}>
     <svg
@@ -75,9 +75,9 @@ const urlES = getRelativeLocaleUrl("es", path);
     <div
       class="w-fit gap-2 justify-start items-center font-bold hidden md:flex"
     >
-      <a href={urlEN} class={locale === "en" ? "text-gray-700" : ""}> EN </a>
+      <a href={urlEN} class={locale === "en" ? "opacity-50" : ""}> EN </a>
       <span class="font-thin">|</span>
-      <a href={urlES} class={locale === "es" ? "text-gray-700" : ""}> ES </a>
+      <a href={urlES} class={locale === "es" ? "opacity-50" : ""}> ES </a>
     </div>
     <button class="open-menu-button md:hidden link-underline"
       >{t("nav.menu")}</button
@@ -95,6 +95,8 @@ const urlES = getRelativeLocaleUrl("es", path);
   window.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("header");
     const sections = document.querySelectorAll("section");
+    const lang = document.querySelectorAll("lang");
+
     const reserveButton = document.getElementById("reserve-button");
 
     const colors_reserveButton = {
@@ -154,7 +156,7 @@ const urlES = getRelativeLocaleUrl("es", path);
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            console.log(entry.target.id + "___sSasasa");
+            // console.log(entry.target.id + "___sSasasa");
             header.classList.replace(
               colors_navbar[id] === "primary" ? "secondary" : "primary",
               colors_navbar[id] === "primary" ? "primary" : "secondary",
