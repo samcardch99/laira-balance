@@ -125,7 +125,7 @@ body {
 }
 
 .light {
-  @apply bg-secondary text-primary !transition-all !delay-0;
+  @apply bg-secondary text-primary;
 }
 
 .lightPink {
@@ -137,7 +137,7 @@ body {
 }
 
 .lightPink:hover {
-  @apply bg-primary text-secondary;
+  @apply bg-primary text-secondary delay-0;
 }
 
 .darkPink:hover {

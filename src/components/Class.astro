@@ -20,7 +20,7 @@ const {
 <section
   data-fade-up-section
   id={id}
-  class=` sticky ${key < 2 ? "lg:top-0 lg:h-[150vh]": "lg:last-class"}  bg-secondary min-h-screen md-vertical:min-h-0 md-vertical:h-auto md-vertical:py-20 w-full mt-10 md:mt-0 ${align === "left" ? "lg:text-end" : "text-start"}`
+  class=` sticky ${key < 2 ? "lg:top-0 lg:h-[150vh]": ""}  bg-secondary min-h-screen md-vertical:min-h-0 md-vertical:h-auto md-vertical:py-20 w-full mt-10 md:mt-0 ${align === "left" ? "lg:text-end" : "text-start"}`
 >
   <div class="flex md:flex-row flex-col items-end justify-end overflow-hidden">
     <div
@@ -31,7 +31,7 @@ const {
           {Name}
         </h2>
         <div
-          class=`line h-[2px] bg-black w-0 transition-all duration-300 ease-out ${align === "left" ? "lg:ml-auto lg:mr-0" : "mr-[10%] "}`
+          class=`line h-[2px] fade-up-item bg-black w-0 transition-all duration-300 ease-out ${align === "left" ? "lg:ml-auto lg:mr-0" : "mr-[10%] "}`
         >
         </div>
       </div>
@@ -55,7 +55,7 @@ const {
       width={1080}
       quality={80}
       id={`class-image-${key}`}
-      class=`object-cover scale-90 md:scale-100 transition-transform duration-500  ease-out  md-vertical:aspect-square md-vertical:h-fit lg:h-[100dvh] w-full md:w-1/2 ${align === "left" ? "order-2" : "md:order-1"}`
+      class=`object-cover scale-90 md:scale-100 transition-transform duration-[600ms]  ease-out  md-vertical:aspect-square md-vertical:h-fit lg:h-[100dvh] w-full md:w-1/2 ${align === "left" ? "order-2" : "md:order-1"}`
     />
   </div>
 </section>
@@ -116,7 +116,7 @@ const {
   // }
 
   ScrollTrigger.create({
-    trigger: ".last-class",
+    trigger: "#Ballet",
     pin: true,
     start: "top top",
     end: "150% bottom",
