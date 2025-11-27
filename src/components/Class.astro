@@ -5,6 +5,7 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const language = getLangFromUrl(Astro.url);
 const t = useTranslations(language);
 const {
+  key,
   className,
   imageSrc,
   imageAlt,
@@ -17,19 +18,20 @@ const {
 ---
 
 <section
+  data-fade-up-section
   id={id}
-  class=`${className} bg-secondary min-h-screen md-vertical:min-h-0 md-vertical:h-auto md-vertical:py-20 w-full mt-10 md:mt-0 ${align === "left" ? "lg:text-end" : "text-start"}`
+  class=` sticky ${key < 2 ? "lg:top-0 lg:h-[150vh]": "lg:last-class"}  bg-secondary min-h-screen md-vertical:min-h-0 md-vertical:h-auto md-vertical:py-20 w-full mt-10 md:mt-0 ${align === "left" ? "lg:text-end" : "text-start"}`
 >
-  <div class="flex md:flex-row flex-col items-end justify-end">
+  <div class="flex md:flex-row flex-col items-end justify-end overflow-hidden">
     <div
-      class=`flex flex-col px-8 gap-6 w-full lg:w-1/2 pb-8  ${align === "left" ? "order-1" : "md:order-2"}`
+      class=`flex flex-col px-8 gap-6 w-full lg:w-1/2 pb-8 lg:pb-16  ${align === "left" ? "order-1" : "md:order-2"}`
     >
       <div class="flex flex-col gap-2">
         <h2 class="text-6xl text-black font-bold italic w-full fade-up-item">
           {Name}
         </h2>
         <div
-          class=`line h-[2px] bg-black w-0 transition-all duration-300 ease-out ${align === "left" ? "lg:ml-[10%]" : "mr-[10%] "}`
+          class=`line h-[2px] bg-black w-0 transition-all duration-300 ease-out ${align === "left" ? "lg:ml-auto lg:mr-0" : "mr-[10%] "}`
         >
         </div>
       </div>
@@ -45,19 +47,20 @@ const {
         >{t("home.classes.more")}</a
       >
     </div>
+
     <Image
       src={imageSrc}
       alt={imageAlt}
       height={1920}
       width={1080}
       quality={80}
-      id={`class-image-${id}`}
-      class=`object-cover scale-90 md:scale-100 transition-transform duration-300 ease-out md-vertical:aspect-square md-vertical:h-fit lg:h-[100dvh] w-full md:w-1/2 ${align === "left" ? "order-2" : "md:order-1"}`
+      id={`class-image-${key}`}
+      class=`object-cover scale-90 md:scale-100 transition-transform duration-500  ease-out  md-vertical:aspect-square md-vertical:h-fit lg:h-[100dvh] w-full md:w-1/2 ${align === "left" ? "order-2" : "md:order-1"}`
     />
   </div>
 </section>
 
-<script is:inline define:vars={{ imageId: `class-image-${id}` }}>
+<script is:inline define:vars={{ imageId: `class-image-${key}` }}>
   const imageElement = document.getElementById(imageId);
   const lineElements = document.querySelectorAll(".line");
 
@@ -93,21 +96,29 @@ const {
     );
     imageObserver.observe(imageElement);
   }
+</script>
 
-  // Observer for the line element
-  if (lineElement) {
-    const lineObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("w-0");
-            entry.target.classList.add("w-[90%]");
-            lineObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-    lineObserver.observe(lineElement);
-  }
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  // for (let i = 0; i < 3; i++) {
+  //   const imageId = `class-image-${i}`;
+  //   gsap.to(`#${imageId}`, {
+  //     scale: 1.1,
+  //     scrollTrigger: {
+  //       trigger: `#${imageId}`,
+  //       start: "top top",
+  //       end: "bottom bottom",
+  //       scrub: true,
+  //     },
+  //   });
+  // }
+
+  ScrollTrigger.create({
+    trigger: ".last-class",
+    pin: true,
+    start: "top top",
+    end: "150% bottom",
+  });
 </script>
