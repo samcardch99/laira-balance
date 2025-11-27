@@ -116,6 +116,7 @@ body {
   @apply border-[1px] border-primary;
 } */
 
+
 .darkPink {
   @apply bg-primary text-secondary transition-colors;
 }
@@ -129,7 +130,7 @@ body {
 }
 
 .lightPink {
-  @apply bg-secondary text-pinkCustom transition-colors;
+  @apply bg-secondary text-pinkCustom;
 }
 
 .light:hover {

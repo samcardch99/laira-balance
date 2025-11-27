@@ -115,10 +115,14 @@ const {
   //   });
   // }
 
-  ScrollTrigger.create({
-    trigger: "#Ballet",
-    pin: true,
-    start: "top top",
-    end: "150% bottom",
+  ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function () {
+      ScrollTrigger.create({
+        trigger: "#Pilates",
+        pin: true,
+        start: "top top",
+        end: "150% bottom",
+      });
+    },
   });
 </script>

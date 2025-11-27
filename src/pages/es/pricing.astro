@@ -37,6 +37,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
 <Layout title="Precios" description="Explora las opciones de precios de Laira Balance Studio. Descubre nuestras membresías ilimitadas, paquetes de clases y clases de prueba diseñadas para adaptarse a tu estilo de vida y bienestar. Encuentra el equilibrio perfecto para ti.">
   <main class="min-h-screen w-full flex flex-col relative">
         <section
+        data-fade-up-section
       id="prices_memberships"
       class="h-[90dvh] w-full relative border border-primary border-t bg-pinkCustom md:flex"
     >
@@ -78,6 +79,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
       class="w-full min-h-[90vh] relative content-center"
     >
       <div
+      data-fade-up-section
         class="px-10 md:px-16 xl:px-32 pt-10 pb-20 md:py-0 md:my-32 grid justify-center place-items-center grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-20 md:gap-16"
       >
         <div class="flex w-full gap-4 -ml-4 md:ml-0">
@@ -122,6 +124,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
       </div>
     </section>
     <section
+    data-fade-up-section
       id="prices_trial"
       class="h-[100dvh] w-full relative border border-primary border-t bg-pinkCustom md:flex"
     >
@@ -159,6 +162,7 @@ const packages = await sanityClient.fetch<SanityDocument[]>(PAQUETES_QUERY);
       </div>
     </section>
     <section
+    data-fade-up-section
       id="prices_class_pack"
       class="w-full pt-32 relative flex flex-col md:min-h-[100dvh] md:items-start  "
     >

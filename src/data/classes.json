@@ -28,15 +28,15 @@
         "height": "h-[150vh] md-vertical:h-auto"
     },
     {
-        "className": "Ballet",
+        "className": "Pilates",
         "classText": {
-            "es": "En Laira Balance cultivamos el arte del Ballet desde una perspectiva consciente y elegante. Nuestras clases se enfocan en la técnica, la postura y la expresión corporal, fomentando gracia, fuerza y equilibrio. En un entorno sereno y minimalista, trabajamos desde los fundamentos barra, centro y estiramientos para desarrollar coordinación, disciplina y armonía entre cuerpo y mente. Cada movimiento busca conectar la belleza del gesto con el bienestar interior.",
-            "en": "At Laira Balance, we cultivate the art of Ballet from a conscious and elegant perspective. Our classes focus on technique, posture, and body expression, fostering grace, strength, and balance. In a serene and minimalist environment, we work on fundamentals like barre, center, and stretching to develop coordination, discipline, and harmony between body and mind. Each movement seeks to connect the beauty of gesture with inner well-being."
+            "es": "En Laira Balance cultivamos el arte del Pilates desde una perspectiva consciente y estabilizante. Nuestras clases se enfocan en la conexión mente-cuerpo, la fortalecimiento del núcleo, y la movilidad articular, fomentando la conciencia postural, la respiración y la precisión. En un entorno sereno y minimalista, trabajamos desde los fundamentos para desarrollar estabilidad, flexibilidad y alineación entre cuerpo y mente. Cada movimiento busca conectar la profundidad de la fuerza con la libertad de movimiento.",
+            "en": "At Laira Balance, we cultivate the Pilates technique from a conscious and stabilizing perspective. Our classes focus on mind-body connection, core strengthening, and joint mobility, fostering postural awareness, breathing, and precision. In a serene and minimalist environment, we work from the fundamentals to develop stability, flexibility, and alignment between body and mind. Every movement seeks to connect deep strength with freedom of movement."
         },
         "classHref": "/pricing",
         "altImage": {
-            "es": "Imagen de una clase de Ballet en Laira Balance",
-            "en": "Image of a Ballet class at Laira Balance"
+            "es": "Imagen de una clase de Pilates en Laira Balance",
+            "en": "Image of a Pilates class at Laira Balance"
         },
         "class": "sticky h-[100vh]",
         "height": "h-[100vh] md-vertical:h-auto"

@@ -15,8 +15,10 @@ const contactURL = getRelativeLocaleUrl(lang, "contact");
   description="Discover the story, philosophy, and purpose behind Laira Balance Studio. A space designed for balance, calm, and beauty. Live with purpose and find elegance in stillness."
 >
   <main>
-    <div class="flex flex-col gap-12 w-full min-h-screen bg-pinkCustom pt-32">
-      <section id="about_interior" class="w-full h-fit relative">
+    <div
+      class="flex flex-col gap-12 w-full min-h-screen bg-pinkCustom pt-32 overflow-x-hidden"
+    >
+      <section id="about_interior" data-fade-up-section class="w-full relative">
         <div class="prose prose-xl px-10 text-secondary">
           <h1
             class="italic font-bold text-5xl thin-screen:text-3xl text-secondary fade-up-item !duration-[600ms] delay-200"
@@ -47,7 +49,7 @@ const contactURL = getRelativeLocaleUrl(lang, "contact");
           </p>
           <a
             href={contactURL}
-            class="fade-up-item !duration-[600ms] delay-[1000ms] lightPink rounded-full px-6 py-4 no-underline"
+            class="fade-up-item lightPink rounded-full px-6 py-4 no-underline"
             >Contact Us</a
           >
         </div>
