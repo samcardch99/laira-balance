@@ -9,6 +9,7 @@ import Form from "../../components/helpers/Form.jsx";
 import Logo_sm from "../../assets/footer/logo_sm.svg";
 import MapPicture from "../../assets/contact/map.jpg";
 import MapPicture_sm from "../../assets/contact/map_sm.jpg";
+import Borsoga from "../../assets/borsoga/logo.svg";
 
 import HeaderLayout from "../../layouts/HeaderLayout.astro";
 import { Image } from "astro:assets";
@@ -137,13 +138,24 @@ import { Image } from "astro:assets";
       <h2 class="md:text-2xl lg:text-3xl italic font-bold pt-8 lg:pt-20 px-8">
         Localización
       </h2>
-      <Logo_sm class="absolute bottom-8 lg:bottom-10 left-8 lg:left-10 w-1/4" />
+      <div class="flex flex-col gap-3 absolute bottom-3 left-8 w-1/4">
+        <Logo_sm class="block w-full" />
+        <a
+          href="https://borsogastudio.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex gap-2 items-center justify-start"
+        >
+          <p class="text-xs">This website was designed by</p>
+          <Borsoga class="w-32 pb-[0.4rem]" />
+        </a>
+      </div>
     </div>
     <Image
       src={MapPicture}
       class="w-2/3 h-full object-cover"
       alt="Location image of Laira Balance Local"
-    />}
+    />
   </div>
   <h2 class="md-custom:hidden text-primary px-8 py-4 font-bold italic text-2xl">
     Localización
