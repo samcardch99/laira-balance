@@ -6,7 +6,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 
 const lang = Astro.currentLocale || "es";
 const pricingURL = getRelativeLocaleUrl(lang, "pricing");
-const { title, subtitle, button, footer, image, id } = Astro.props;
+const { title, subtitle, button, footer, image, id, key } = Astro.props;
 ---
 
 <section
@@ -31,7 +31,8 @@ const { title, subtitle, button, footer, image, id } = Astro.props;
           {subtitle}
         </h3>
         <a
-          href={pricingURL}
+          href={key === 1 ? "https://lairabrand.com" : pricingURL}
+          target={key === 1 ? "_blank" : "_self"}
           class="darkPink px-6 py-2 rounded-full w-fit fade-up-item">{button}</a
         >
       </div>
