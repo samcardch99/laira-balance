@@ -7,6 +7,8 @@ const eventsURL = getRelativeLocaleUrl(lang, "events");
 const pricingURL = getRelativeLocaleUrl(lang, "pricing");
 const contactURL = getRelativeLocaleUrl(lang, "contact");
 const homeURL = getRelativeLocaleUrl(lang, "/");
+const boutiqueURL = "https://lairabrand.com";
+
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const language = getLangFromUrl(Astro.url);
@@ -59,6 +61,9 @@ const urlES = getRelativeLocaleUrl("es", path);
       <span class="font-thin">|</span>
       <a href="/es"> ES </a>
     </div>
+    <a href={boutiqueURL} target="_blank" class="hidden md:block link-underline"
+      >Boutique</a
+    >
 
     <a href={scheduleURL} class="hidden md:block link-underline"
       >{t("nav.schedules")}</a
