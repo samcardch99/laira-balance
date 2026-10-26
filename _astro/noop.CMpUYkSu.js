@@ -1,0 +1,1 @@
+import{b as t}from"./EventsIsland.CP_qaCHs.js";import"./jsx-runtime.D_zvdyIk.js";import"./index.7in8nkh5.js";import"./types.BTIvsRlF.js";const a={...t,propertiesToHash:["src"],async transform(r,o){return{data:r,format:o.format}}};var i=a;export{i as default};
