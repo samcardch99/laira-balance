@@ -128,6 +128,8 @@ const urlES = getRelativeLocaleUrl("es", path);
       events_interior: "darkPink",
       about_interior: "light",
       about_image: "light",
+      friendsgiving: "darkPink",
+      friendsgiving_tickets: "darkPink",
     };
 
     const colors_navbar = {
@@ -154,6 +156,8 @@ const urlES = getRelativeLocaleUrl("es", path);
       events_text: "primary",
       events_grid: "primary",
       events_interior: "primary",
+      friendsgiving: "primary",
+      friendsgiving_tickets: "primary",
     };
 
     const observer = new IntersectionObserver(
@@ -173,7 +177,11 @@ const urlES = getRelativeLocaleUrl("es", path);
           }
         });
       },
-      { threshold: 0.75 },
+      // En Friendsgiving las secciones son más altas que la pantalla y el 75 % nunca se
+      // alcanza: ahí cuenta la franja superior, donde está el navbar.
+      document.getElementById("friendsgiving")
+        ? { rootMargin: "0px 0px -90% 0px", threshold: 0 }
+        : { threshold: 0.75 },
     );
 
     sections.forEach((section) => observer.observe(section));
